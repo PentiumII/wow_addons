@@ -1,0 +1,82 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+UI.xsd">
+	<Frame name="BF_PetBattleUnitTooltipTemplate" parent="UIParent" frameStrata="TOOLTIP" clampedToScreen="true" virtual="true" hidden="true" inherits="TooltipBorderedFrameTemplate">
+		<Size x="260" y="90"/>
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString parentKey="PetName" inherits="GameFontHighlightLarge" text="NAME" justifyH="LEFT" justifyV="MIDDLE">
+					<!--Size and Anchor changed in SetAbility-->
+					<Size x="190" y="32"/>
+					<Anchors>
+						<Anchor point="TOPLEFT"  x="10" y="0"/>
+					</Anchors>
+				</FontString>
+				<FontString parentKey="PetLevel" inherits="GameFontHighlightLarge" text="NAME" justifyH="RIGHT" justifyV="MIDDLE">
+					<!--Size and Anchor changed in SetAbility-->
+					<Size x="190" y="32"/>
+					<Anchors>
+						<Anchor point="TOPRIGHT"  x="-7" y="0"/>
+					</Anchors>
+				</FontString>
+				<Texture parentKey="AbilityPetType">
+					<Size x="33" y="33"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeKey="$parent.PetName" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+					</Anchors>
+					<TexCoords left="0.79687500" right="0.49218750" top="0.50390625" bottom="0.65625000"/>
+				</Texture>
+				<FontString parentKey="Name" inherits="GameFontHighlightLarge" text="NAME" justifyH="LEFT" justifyV="MIDDLE">
+					<!--Size and Anchor changed in SetAbility-->
+					<Size x="190" y="32"/>
+					<Anchors>
+						<Anchor point="LEFT" relativeKey="$parent.AbilityPetType" relativePoint="RIGHT" x="5" y="0"/>
+					</Anchors>
+				</FontString>
+				<FontString parentKey="CanBeTake" inherits="GameFontHighlightLarge" text="UNIT_CAPTURABLE" justifyH="RIGHT" justifyV="MIDDLE">
+					<Size x="190" y="32"/>
+					<Anchors>
+						<Anchor point="TOPRIGHT" relativeKey="$parent.PetLevel" relativePoint="BOTTOMRIGHT" x="-5" y="-5"/>
+					</Anchors>
+				</FontString>
+				<FontString parentKey="Description" inherits="GameFontNormal" justifyH="LEFT">
+					<Size x="239" y="0"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeKey="$parent.AbilityPetType" relativePoint="BOTTOMLEFT" x="5" y="-5"/>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Animations>
+			<AnimationGroup parentKey="ClearTootipAnim">
+				<Alpha targetKey="$parent" change="-1" duration="1" order="1" startDelay="2"/>
+				<Scripts>
+					<OnFinished>
+						self:GetParent():Hide()
+					</OnFinished>
+				</Scripts>
+			</AnimationGroup>
+		</Animations>
+		<Scripts>
+			<OnUpdate>
+				BF_PetBattleAbilityTooltip_Update(self,elapsed)
+			</OnUpdate>
+		</Scripts>
+	</Frame>
+	<Frame name="BF_PetBattlePrimaryAbilityTooltip" inherits="BF_PetBattleUnitTooltipTemplate"/>
+	<Frame name = "BattleMapInfoDropDownMenu" frameStrata="HIGH" inherits="UIDropDownMenuTemplate" parent= "WorldMapDetailFrame" hidden="true">
+		<Anchors>
+			<Anchor point="TOPLEFT">
+				<Offset>
+					<AbsDimension x="0" y="-3"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Scripts>
+			<OnLoad>
+				self:SetFrameLevel(self:GetFrameLevel() + 4);
+				UIDropDownMenu_SetWidth(self,130);
+				UIDropDownMenu_SetButtonWidth(self,150);
+			</OnLoad>
+		</Scripts>
+	</Frame>
+</Ui>

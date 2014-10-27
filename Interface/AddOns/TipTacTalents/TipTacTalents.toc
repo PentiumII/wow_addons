@@ -1,0 +1,9 @@
+## Interface: 60000
+## X-BigfootType: 6
+## X-BigfootDesc: 强大的鼠标提示信息增强插件，高度多样+自由化
+## Version: 14.10.15
+## Title: TipTacTalents
+## Author: Aezay (Earthen Ring EU)
+## Notes: Adds Talent Spec to Player Tooltips
+## OptionalDeps: TipTac
+core.lua

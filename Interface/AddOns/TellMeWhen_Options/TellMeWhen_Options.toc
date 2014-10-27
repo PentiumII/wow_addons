@@ -1,0 +1,21 @@
+﻿## Interface: 60000
+## X-BigfootType: 1
+## X-BigfootDesc: 几乎函盖WOW内一切技能/触发类/冷却等设置,甚至你可以将它当成一个自己的冷却时间+对手的冷却时间、 BUFF/DEBUFF等等来用。
+## Title: TellMeWhen Options
+## X-Curse-Packaged-Version: 7.1.2-9-g9ba8d29
+## X-Curse-Project-Name: TellMeWhen
+## X-Curse-Project-ID: tellmewhen
+## X-Curse-Repository-ID: wow/tellmewhen/mainline
+
+## Author: Cybeloras of Aerie Peak/Detheroc/Mal'Ganis
+## Notes: Options and configuration for TellMeWhen
+## RequiredDeps: TellMeWhen
+## LoadOnDemand: 1
+## SavedVariables: TMWOptDB
+## X-Category: Combat
+
+# All files for TellMeWhen_Options are now stored in the main addon.
+# However, they still are not loaded until TellMeWhen_Options, so there is no difference in performance or anything.
+# This makes the structure for modules and components that need their own config files much neater and nicer.
+
+..\TellMeWhen\Options\includes.xml

@@ -1,0 +1,23 @@
+tag v3.1.0
+a0b122e17cdb967f0c9d0fa4729ef8a2d02a1e58
+David Lynch <kemayo@gmail.com>
+2014-10-14 18:36:55 -0500
+
+Tagging v3.1.0
+
+
+--------------------
+
+David Lynch:
+	- On nameplate scan, use store name if present
+	- Yield to this fetish for non-rare rares
+	- One Many Army
+	- Ambiguate sync
+	- Don't mark the dead
+	- No clicktarget whiteout
+	- Some minor changes I don't care about :P
+	- Better Timeless defaults
+	- Removal of cache scanning
+	- Improve vignettes
+	- TOC bump
+	- Oggs, and group/guild announcing

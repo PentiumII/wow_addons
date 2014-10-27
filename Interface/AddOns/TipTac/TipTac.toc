@@ -1,0 +1,9 @@
+## Interface: 60000
+## X-BigfootType: 6
+## X-BigfootDesc: |cFF4488FF[主模块]|r 强大的鼠标提示信息增强插件，高度多样+自由化
+## Version: 14.10.16
+## Title: TipTac
+## Author: Aezay (Earthen Ring EU)
+## Notes: Highly Customizable Tooltip Enhancement Addon
+## SavedVariables: TipTac_Config
+core.lua

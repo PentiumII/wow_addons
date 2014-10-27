@@ -1,0 +1,19 @@
+﻿## Interface: 60000
+## Title: TargetCharms
+## Title-zhCN: [大脚][集]标记助手
+## Title-zhTW: [大腳][集]標記助手
+## Notes: |cffbc8f8fToolbar for setting charms/raid icons on targets.|r
+## Notes-zhCN: |cff00ff00TargetCharms|r                                             |cffbc8f8f团队和世界标记助手。|r
+## Notes-zhTW: |cff00ff00TargetCharms|r                                             |cffbc8f8f團隊和世界標記助手。|r
+## Author: Gander
+## Version: 1.5.5 (09/09/2014)
+## SavedVariablesPerCharacter: TargetCharms_Options
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+localization.en.lua
+localization.cn.lua
+
+TargetCharms.xml
+TargetCharmsSetup.xml

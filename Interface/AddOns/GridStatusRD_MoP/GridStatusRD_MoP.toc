@@ -1,0 +1,22 @@
+﻿## Interface: 60000
+## Title: GridStatusRaidDebuff(MoP)
+## Title-zhCN: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 减益法术(MoP)
+## Title-zhTW: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 減益法術(MoP)
+## Notes: |cffbc8f8fDebuff List for MoP.|r
+## Notes-zhCN: |cff00ff00GridStatusRaidDebuff_Mop|r                                          |cffbc8f8f使Grid可以显示MoP团队副本中的减益法术。|r
+## Notes-zhTW: |cff00ff00GridStatusRaidDebuff_Mop|r                                          |cffbc8f8f使Grid可以顯示MoP團隊副本中的減益法術。|r
+## Author: Evilsithgirl (Reckoning-Mannoroth-US)
+## Version: 1.4
+## Dependencies: GridStatusRaidDebuff
+## LoadWith: Grid
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+CheckCompat.lua
+MogushanVaults.lua
+HeartOfFear.lua
+ShaofAnger.lua
+TerraceofEndlessSpring.lua
+ThroneofThunder.lua
+SiegeofOrgrimmar.lua
+

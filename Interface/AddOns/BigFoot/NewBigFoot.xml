@@ -1,0 +1,14 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
+	<Script file="BigfootNew\locale.lua"/>
+	<Script file="BigfootNew\defaultDB.lua"/>
+	<Script file="BigfootNew\Alert.lua"/>
+	<Script file="BigfootNew\classv2.lua"/>
+	<Script file="BigfootNew\BigfootSearch.lua"/>
+	<Script file="BigfootNew\suit.lua"/>
+	<Script file="BigfootNew\Addon.lua"/>
+	<Script file="BigfootNew\AddonConfig.lua"/>
+	<Script file="BigfootNew\BigfootNew.lua"/>
+	<Script file="BigfootNew\BigfootNewRegister.lua"/>
+	<Include file="BigfootNew\BigfootNewMainFrame.xml"/>
+</Ui>

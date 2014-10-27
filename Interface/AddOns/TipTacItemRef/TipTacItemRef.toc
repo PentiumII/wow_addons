@@ -1,0 +1,10 @@
+## Interface: 60000
+## X-BigfootType: 6
+## X-BigfootDesc: 强大的鼠标提示信息增强插件，高度多样+自由化
+## Version: 14.10.16
+## Title: TipTacItemRef
+## Author: Aezay (Earthen Ring EU)
+## Notes: Improved ItemRefTooltip
+## OptionalDeps: TipTac
+GetUpgradedItemLevel.lua
+core.lua

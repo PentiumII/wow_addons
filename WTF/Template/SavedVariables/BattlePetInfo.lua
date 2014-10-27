@@ -1,0 +1,3 @@
+
+BattlePetInfo_Save = {
+}

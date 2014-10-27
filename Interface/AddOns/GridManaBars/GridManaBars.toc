@@ -1,0 +1,21 @@
+## Interface: 60000
+## Title: GridManaBars
+## Title-zhCN: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 法力条
+## Title-zhTW: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 法力條
+## Notes: |cffbc8f8fAdds manabars to the sides of Grid frames.|r
+## Notes-zhCN: |cff00ff00GridManaBars|r                                             |cffbc8f8f在 Grid 框体内显示法力条。|r
+## Notes-zhTW: |cff00ff00GridManaBars|r                                             |cffbc8f8f在 Grid 框架內顯示法力條。|r
+## Author: Adelea@EU-Bronzebeard, Julith
+## Version: 1.04
+## Dependencies: Grid
+## LoadWith: Grid
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+GMBLocale-enUS.lua
+GMBLocale-zhCN.lua
+GMBLocale-zhTW.lua
+
+GridManaBar.lua
+GridStatusMana.lua
+

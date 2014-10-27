@@ -1,0 +1,17 @@
+
+TidyPlatesWidgetData = {
+	["CachedAuraDurations"] = {
+		[48025] = 0,
+		[77769] = 0,
+	},
+	["UnitClass"] = {
+		["森保圆"] = "HUNTER",
+	},
+	["UnitDescriptions"] = {
+		["山地狐狸"] = "|cff80808016  |cffffffff狐狸\n|cffffff00中立",
+		["山地灰熊"] = "|cff80808015  |cffffffff熊\n|cffff0000敌对",
+		["山羊"] = "|cff8080805  |cffffffff小动物\n|cffffff00中立",
+	},
+	["UnitGuild"] = {
+	},
+}

@@ -1,0 +1,68 @@
+## Interface: 60000
+## Title: Bartender4
+## Title-zhTW: [大腳][集]Bartender4
+## Title-zhCN: [大脚][集]Bartender4
+## Notes: |cffbc8f8fSimple and Advanced combined - Bartender4 ActionBar AddOn.|r
+## Notes-zhCN: |cff00ff00Bartender4|r                                             |cffbc8f8fBartender4动作条插件。|r
+## Notes-zhTW: |cff00ff00Bartender4|r                                             |cffbc8f8fBartender4動作條插件。|r
+## Version: 4.6.2
+## Author: Nevcairiel
+## X-Email: h.leppkes at gmail dot com
+## X-Category: Action Bars
+## X-Website: http://www.wowace.com/addons/bartender4/
+## X-License: All rights reserved.
+## SavedVariables: Bartender4DB
+## Dependencies: Bigfoot
+## LoadWith: Bartender4_BFMod
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+lib\LibKeyBound-1.0\lib.xml
+lib\LibActionButton-1.0\LibActionButton-1.0.lua
+lib\SimpleSticky.lua
+
+locale\locale.xml
+
+## Core ##
+Bartender4.lua
+
+## Prototypes ##
+Bar.lua
+ButtonBar.lua
+StateBar.lua
+ActionBar.lua
+
+## Buttons ##
+PetButton.lua
+
+## Modules ##
+ActionBars.lua
+BagBar.lua
+PetBar.lua
+StanceBar.lua
+MicroMenu.lua
+RepXPBar.lua
+VehicleBar.lua
+BlizzardArt.lua
+ExtraActionBar.lua
+
+## Options ##
+Options\AceGUIWidget-NumberEditBox.lua
+
+Options\Options.lua
+Options\Bar.lua
+Options\ButtonBar.lua
+Options\StateBar.lua
+
+Options\ActionBar.lua
+Options\BagBar.lua
+Options\MicroMenu.lua
+Options\PetBar.lua
+Options\StanceBar.lua
+Options\RepXPBar.lua
+Options\VehicleBar.lua
+Options\BlizzardArt.lua
+Options\ExtraActionBar.lua
+
+## Presets -- needs to be the last ##
+Options\Presets.lua

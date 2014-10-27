@@ -1,0 +1,17 @@
+﻿## Interface: 60000
+## Title: GridStatusRaidIcons
+## Title-zhCN: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 团队标记
+## Title-zhTW: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 團隊標記
+## Notes: |cffbc8f8fAdds Raid Target Icon status to Grid.|r
+## Notes-zhCN: |cff00ff00GridStatusRaidIcons|r                                             |cffbc8f8f在 Grid 框体上显示团队标记。|r
+## Notes-zhTW: |cff00ff00GridStatusRaidIcons|r                                             |cffbc8f8f在 Grid 框架上顯示團隊標記。|r
+## Dependencies: Grid
+## LoadWith: Grid
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+GridStatusRaidIcons-localization-enUS.lua
+GridStatusRaidIcons-localization-zhCN.lua
+GridStatusRaidIcons-localization-zhTW.lua
+
+GridStatusRaidIcons.lua

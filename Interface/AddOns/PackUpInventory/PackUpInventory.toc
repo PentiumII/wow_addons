@@ -1,0 +1,13 @@
+﻿## Interface: 60000
+## Title: [BF] PackUpInventory
+## Title-zhCN: [大脚]背包整理
+## Title-zhTW: [大腳]背包整理
+## Notes: |cffbc8f8fPack up items in your bags and bank automatically.|r
+## Notes-zhCN: |cff00ff00PackUpInventory|r                                             |cffbc8f8f自动整理背包和银行里的物品。|r
+## Notes-zhTW: |cff00ff00PackUpInventory|r                                             |cffbc8f8f自動整理背包和銀行里的物品。|r
+## Author: 独孤傲雪
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+PackUpInventory.lua

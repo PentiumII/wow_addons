@@ -1,0 +1,12 @@
+﻿## Interface: 60000
+## Title: [BF] ItemLevel
+## Title-zhCN: [大脚]装备等级
+## Title-zhTW: [大腳]裝備等級
+## Notes: |cffbc8f8fCommunication equipment level of the characters.|r
+## Notes-zhCN: |cff00ff00ItemLevel|r                                             |cffbc8f8f抓取人物的系统装备等级并支持通讯。|r
+## Notes-zhTW: |cff00ff00ItemLevel|r                                             |cffbc8f8f抓取人物的系統裝備等級并支持通訊。|r
+## Author: Ever@bf
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+
+ItemLevel.lua

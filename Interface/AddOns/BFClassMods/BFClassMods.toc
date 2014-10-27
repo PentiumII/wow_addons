@@ -1,0 +1,21 @@
+## Interface: 60000
+## Title: [BF] ClassMods
+## Title-zhCN: [大脚]职业守护条
+## Title-zhTW: [大腳]職業守護條
+## Notes: |cffbc8f8fProvide series of mods for hunter including aim assistant and feeding helper.|r
+## Notes-zhCN: |cff00ff00BFClassMods|r                                             |cffbc8f8f为某些职业提供快捷的常用功能，包括盗贼，法师，术士，猎人以及死骑。|r
+## Notes-zhTW: |cff00ff00BFClassMods|r                                             |cffbc8f8f為某些職業提供快捷的常用功能，包括盜賊，法師，術士，獵人以及死騎。|r
+## Author: Terry@BF,独孤傲雪, 炽火
+## SavedVariables: BFClassMod_Config,BFRuneFrame_Config,zFeeder
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+Core.lua
+Aspects.lua
+RuneFrame.lua
+
+localization.lua
+
+HunterAssist.xml
+zFeeder.xml

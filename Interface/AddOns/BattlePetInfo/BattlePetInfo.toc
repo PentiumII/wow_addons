@@ -1,0 +1,19 @@
+﻿## Interface: 60000
+## Title: [BF] BattlePetInfo
+## Title-zhCN: [大脚]宠物战斗助手
+## Title-zhTW: [大腳]寵物戰鬥助手
+## Notes: |cffbc8f8fProvide pet quality, target pet information.|r
+## Notes-zhCN: |cff00ff00BattlePetInfo|r                                             |cffbc8f8f提供宠物品质,目标宠物信息提示等功能。|r
+## Notes-zhTW: |cff00ff00BattlePetInfo|r                                             |cffbc8f8f提供寵物品質,寵物鼠標信息提示等功能。|r
+## SavedVariables: BattlePetInfo_Save
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+BattlePetDB.lua
+
+BattlePetInfo.xml
+BattlePetInfo.lua
+
+BattlePetMapInfo.lua
+BattlePetTooltip.lua

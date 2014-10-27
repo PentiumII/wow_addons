@@ -1,0 +1,29 @@
+## Interface: 60000
+## Title: Grid
+## Title-zhCN: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r |cff0055FF核心|r
+## Title-zhTW: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r |cff0055FF核心|r
+## Notes: |cffbc8f8fA compact grid of party/raid unit frames.|r
+## Notes-zhCN: |cff00ff00Grid|r                                             |cffbc8f8f轻量级模块化的团队框架。|r
+## Notes-zhTW: |cff00ff00Grid|r                                             |cffbc8f8f輕量級模塊化的團隊框架。|r
+## Author: Phanx, Pastamancer, Maia
+## Version: 5.0.5.1539
+## SavedVariables: GridDB
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+Libs\LibResInfo-1.0\LibResInfo-1.0.lua
+
+Locales\GridLocale-zhCN.lua
+Locales\GridLocale-zhTW.lua
+
+#HideRaidFrame.lua
+GridCore.lua
+GridRoster.lua
+GridLayout.lua
+GridLayoutLayouts.lua
+GridFrame.lua
+GridStatus.lua
+GridLDB.lua
+
+Statuses\Statuses.xml

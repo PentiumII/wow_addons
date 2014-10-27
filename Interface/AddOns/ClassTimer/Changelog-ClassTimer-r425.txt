@@ -1,0 +1,39 @@
+------------------------------------------------------------------------
+r425 | mikk | 2014-10-22 01:12:02 +0000 (Wed, 22 Oct 2014) | 3 lines
+Changed paths:
+   M /trunk/options.lua
+
+Add CONFIGMODE support as per http://wowpedia.org/ConfigMode
+
+
+------------------------------------------------------------------------
+r424 | stanzilla | 2014-10-14 14:00:28 +0000 (Tue, 14 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/Bars/Druid.lua
+   M /trunk/Bars/Hunter.lua
+   M /trunk/Bars/Monk.lua
+   M /trunk/Bars/Paladin.lua
+   M /trunk/Bars/Warrior.lua
+   M /trunk/ClassTimer.toc
+
+second round of 6.0 changes
+------------------------------------------------------------------------
+r423 | stanzilla | 2014-10-12 23:38:30 +0000 (Sun, 12 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/Bars/Rogue.lua
+
+WoD spell pass for Rogues
+------------------------------------------------------------------------
+r422 | stanzilla | 2014-10-02 21:54:32 +0000 (Thu, 02 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/Bars/Hunter.lua
+   M /trunk/Bars/Rogue.lua
+
+enhancements for Rogues and Hunters
+------------------------------------------------------------------------
+r421 | stanzilla | 2014-10-02 21:39:58 +0000 (Thu, 02 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/Bars/Hunter.lua
+
+add Black Arrow for Hunters
+------------------------------------------------------------------------

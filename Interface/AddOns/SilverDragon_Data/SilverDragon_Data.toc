@@ -1,0 +1,18 @@
+﻿## Interface: 60000
+## X-BigfootType: 1
+## X-BigfootDesc: |cFF4488FF此模块依赖于 SilverDragon|r 记录稀有怪物位置。。
+## Title: SilverDragon (Data)
+## Notes: Default set of rares for SilverDragon
+## Version: v3.1.0
+## Author: Kemayo
+## eMail: kemayo at gmail dot com
+## X-Category: Interface Enhancements
+## X-Donate: PayPal:kemayo AT gmail DOT com
+## Dependencies: SilverDragon
+## LoadOnDemand: 1
+## X-Curse-Packaged-Version: v3.1.0
+## X-Curse-Project-Name: SilverDragon
+## X-Curse-Project-ID: silver-dragon
+## X-Curse-Repository-ID: wow/silver-dragon/mainline
+
+module.xml

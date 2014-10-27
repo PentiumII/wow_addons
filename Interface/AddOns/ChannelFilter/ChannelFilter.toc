@@ -1,0 +1,12 @@
+﻿## Interface: 60000
+## Title: [BF] ChannelFilter
+## Title-zhCN: [大脚]频道过滤
+## Title-zhTW: [大腳]頻道過濾
+## Notes: |cffbc8f8fHide chat messages with some specific words.|r
+## Notes-zhCN: |cff00ff00ChannelFilter|r                                             |cffbc8f8f过滤频道中某些特殊的字眼。|r
+## Notes-zhTW: |cff00ff00ChannelFilter|r                                             |cffbc8f8f過濾頻道中某些特殊的字眼。|r
+## SavedVariables: ChannelFilter_Config
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+
+ChannelFilter.xml

@@ -1,0 +1,21 @@
+﻿## Interface: 60000
+## Title: MySlot
+## Title-zhCN: [大脚][集]按键设置保存
+## Title-zhTW: [大腳][集]按鍵設置保存
+## Notes: |cffbc8f8fMemory, restore, save, load your key settings.|r
+## Notes-zhCN: |cff00ff00MySlot|r                                             |cffbc8f8f记忆、恢复、保存、载入您的按键设置。|r
+## Notes-zhTW: |cff00ff00MySlot|r                                             |cffbc8f8f記憶、恢復、保存、載入您的按鍵設置。|r
+## Version: v5.2.1
+## Author: tg123,Enhanced By Ever@BF
+## SavedVariables: MySlot_SavedDb
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+libs\embeds.xml
+
+locales.lua
+keys.lua
+PbMySlot.lua
+MySlot.lua
+MySlot.xml

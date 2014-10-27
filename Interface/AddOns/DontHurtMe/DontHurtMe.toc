@@ -1,0 +1,9 @@
+﻿## Interface: 50300
+## Title:DontHurtMe
+## Title-zhCN: 别打我
+## Title-zhTW: 别打我
+## Notes-zhCN: |cff00ff00DontHurtMe|r：挨打卖萌。
+## Notes-zhTW: |cff00ff00DontHurtMe|r：挨打卖萌。
+## Author: fhsvengetta@NGA
+
+DontHurtMe.lua

@@ -1,0 +1,13 @@
+## Interface: 60000
+## X-BigfootType: 6
+## X-BigfootDesc: |cFF4488FF此模块依赖于 TipTac 主模块|r 
+## Version: 14.10.16
+## Title: TipTacOptions
+## Author: Aezay (Earthen Ring EU)
+## Notes: Option Dialog for TipTac
+## Dependencies: TipTac
+## LoadOnDemand: 1
+Libs\AzDropDown.lua
+Libs\AzOptionsFactory.lua
+DropDowns.lua
+Options.lua

@@ -1,0 +1,122 @@
+
+ItemSourceDB = {
+}
+ObjectLocationDB = {
+}
+CreatureLocationDB = {
+}
+CreatureDB = {
+}
+QuestDB = {
+}
+QuestCompleteDB = {
+}
+QuestEventDB = {
+}
+SkillSourceDB = {
+}
+BigFootBot_Version = {
+}
+BigFootBot_Info = nil
+PlayersDB = {
+	["相思丶无解:洛丹伦"] = {
+		["race"] = 4,
+		["name"] = "相思丶无解",
+		["guild"] = "战神信仰",
+		["level"] = 90,
+		["gender"] = 3,
+		["class"] = 6,
+		["server"] = "洛丹伦",
+	},
+	["凉潮痿:洛丹伦"] = {
+		["race"] = 1,
+		["name"] = "凉潮痿",
+		["guild"] = "夜幕破晓",
+		["level"] = 90,
+		["gender"] = 2,
+		["class"] = 2,
+		["server"] = "洛丹伦",
+	},
+	["骑丶鬃丶罪:洛丹伦"] = {
+		["race"] = 4,
+		["name"] = "骑丶鬃丶罪",
+		["guild"] = "MARK",
+		["level"] = 90,
+		["gender"] = 3,
+		["class"] = 3,
+		["server"] = "洛丹伦",
+	},
+	["荭丶茶:洛丹伦"] = {
+		["race"] = 2,
+		["name"] = "荭丶茶",
+		["guild"] = "Tonight Fighting",
+		["level"] = 90,
+		["gender"] = 2,
+		["class"] = 2,
+		["server"] = "洛丹伦",
+	},
+	["Lasthome:洛丹伦"] = {
+		["race"] = 3,
+		["name"] = "Lasthome",
+		["level"] = 90,
+		["gender"] = 2,
+		["class"] = 5,
+		["server"] = "洛丹伦",
+	},
+	["Witherk:洛丹伦"] = {
+		["race"] = 3,
+		["name"] = "Witherk",
+		["guild"] = "落单抡丶照死抡",
+		["level"] = 90,
+		["gender"] = 2,
+		["class"] = 1,
+		["server"] = "洛丹伦",
+	},
+	["Youngandbeau:洛丹伦"] = {
+		["race"] = 4,
+		["name"] = "Youngandbeau",
+		["guild"] = "男人帮",
+		["level"] = 90,
+		["gender"] = 3,
+		["class"] = 6,
+		["server"] = "洛丹伦",
+	},
+	["烟味:古加尔"] = {
+		["race"] = 2,
+		["name"] = "烟味",
+		["guild"] = "Sword Art Online",
+		["level"] = 90,
+		["gender"] = 2,
+		["class"] = 2,
+		["server"] = "古加尔",
+	},
+	["悄悄滴打槍:洛丹伦"] = {
+		["race"] = 3,
+		["name"] = "悄悄滴打槍",
+		["guild"] = "NGA",
+		["level"] = 90,
+		["gender"] = 2,
+		["class"] = 5,
+		["server"] = "洛丹伦",
+	},
+}
+UtilDB = {
+}
+NPCMarkCollectionDB = {
+}
+BigFootBot_collectData = {
+	["CombatBattlePetData"] = {
+	},
+	["BigFootBank_Data"] = {
+	},
+	["WildBattlePetData"] = {
+	},
+}
+SpamChatDB = {
+	[1413720003] = {
+		["name"] = "莉娜丨因巴斯-洛丹伦",
+		["content"] = "3H来个不用治疗的T~",
+	},
+	["factionGroup"] = "Horde",
+	["realm"] = "洛丹伦",
+}

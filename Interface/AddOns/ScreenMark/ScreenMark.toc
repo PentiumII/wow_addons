@@ -1,0 +1,12 @@
+﻿## Interface: 60000
+## Title: [BF] ScreenMark
+## Title-zhCN: [大脚]屏幕标记
+## Title-zhTW: [大腳]屏幕標記
+## Notes: |cffbc8f8fAllow you to make your own screen mark.|r
+## Notes-zhCN: |cff00ff00ScreenMark|r                                             |cffbc8f8f允许截图时可以在自己的屏幕上印上标记。|r
+## Notes-zhTW: |cff00ff00ScreenMark|r                                             |cffbc8f8f允許截圖時可以在自己的屏幕上印上標記。|r
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+ScreenMark.xml

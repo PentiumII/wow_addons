@@ -1,0 +1,40 @@
+﻿## Interface: 60000
+## Title: Gladius
+## Title-zhCN: [大脚][集]竞技助手
+## Title-zhTW: [大腳][集]競技助手
+## Notes: |cffbc8f8fArena enemy unit frames.|r
+## Notes-zhCN: |cff00ff00Gladius|r                                             |cffbc8f8f竞技场敌人的头像插件。|r
+## Notes-zhTW: |cff00ff00Gladius|r                                             |cffbc8f8f競技場敵人的頭像插件。|r
+## Version: 3.1.0
+## Author: Resike and Firebunny. Original author: Proditor
+## SavedVariables: Gladius2DB
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+libs\DRData-1.0\DRData-1.0.lua
+
+Gladius.lua
+
+localization\enUS.lua
+localization\zhCN.lua
+localization\zhTW.lua
+
+options.lua
+speclist.lua
+
+modules\healthbar.lua
+modules\powerbar.lua
+modules\castbar.lua
+modules\auras.lua
+modules\classicon.lua
+modules\trinket.lua
+modules\highlight.lua
+modules\clicks.lua
+modules\targetbar.lua
+modules\tags.lua
+modules\announcements.lua
+modules\drtracker.lua
+modules\timer.lua
+modules\layout.lua
+modules\dispell.lua

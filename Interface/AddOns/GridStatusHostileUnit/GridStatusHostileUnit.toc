@@ -1,0 +1,15 @@
+﻿## Interface: 60000
+## Title: GridStatus HostileUnit
+## Title-zhCN: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 敌对框体
+## Title-zhTW: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 敵對框體
+## Notes: |cffbc8f8fStatus indicator that shows if a unit is hostile (probably mindcontrolled).|r
+## Notes-zhCN: |cff00ff00GridStatusHostileUnit|r                                             |cffbc8f8f在 Grid 中显示敌对的单位（例如：被心灵控制）。|r
+## Notes-zhTW: |cff00ff00GridStatusHostileUnit|r                                             |cffbc8f8f在 Grid 中顯示敵對的單位（例如：被心靈控制）。|r
+## Author: Julith
+## Version: 0.91
+## Dependencies: Grid
+## LoadWith: Grid
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+GridStatusHostileUnit.lua

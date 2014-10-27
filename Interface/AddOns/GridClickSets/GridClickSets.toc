@@ -1,0 +1,20 @@
+﻿## Interface: 60000
+## Title: GridClickSets
+## Title-zhCN: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 点击施法
+## Title-zhTW: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 點擊施法
+## Notes: |cffbc8f8fSet the clicking action for Grid buttons.|r
+## Notes-zhCN: |cff00ff00GridClickSets|r                                             |cffbc8f8f设置按钮的点击动作。|r
+## Notes-zhTW: |cff00ff00GridClickSets|r                                             |cffbc8f8f設置按鈕的點擊動作。|r
+## Author: Warbaby
+## Version: 2.0
+## SavedVariablesPerCharacter: GridClickSetsForTalents
+## Dependencies: Grid
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+locale.lua
+
+DefaultClickSets.lua
+GridClickSetsFrame.xml
+CompactUnitFrameClickSets.lua
+GridClickSets.lua

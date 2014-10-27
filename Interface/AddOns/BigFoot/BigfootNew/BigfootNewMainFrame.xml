@@ -1,0 +1,2379 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="BigfootNewMainFrame.lua"/>
+	<Include file="Config\AddonConfig.xml"/>
+
+	<Button name="DropDownButtonTemplate_2" virtual="true" >
+		<Size>
+			<AbsDimension x="24" y="24"/>
+		</Size>
+		<Scripts>
+			<OnClick>
+				PlaySound("igMainMenuOptionCheckBoxOn");
+			</OnClick>
+		</Scripts>
+		<NormalTexture name="$parentNormalTexture" file="Interface\ChatFrame\UI-ChatIcon-ScrollDown-Up">
+			<Size>
+				<AbsDimension x="24" y="24"/>
+			</Size>
+			<Anchors>
+				<Anchor point="RIGHT"/>
+			</Anchors>
+		</NormalTexture>
+		<PushedTexture name="$parentPushedTexture" file="Interface\ChatFrame\UI-ChatIcon-ScrollDown-Down">
+			<Size>
+				<AbsDimension x="24" y="24"/>
+			</Size>
+			<Anchors>
+				<Anchor point="RIGHT"/>
+			</Anchors>
+		</PushedTexture>
+		<DisabledTexture name="$parentDisabledTexture" file="Interface\ChatFrame\UI-ChatIcon-ScrollDown-Disabled">
+			<Size>
+				<AbsDimension x="24" y="24"/>
+			</Size>
+			<Anchors>
+				<Anchor point="RIGHT"/>
+			</Anchors>
+		</DisabledTexture>
+		<HighlightTexture name="$parentHighlightTexture" file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD">
+			<Size>
+				<AbsDimension x="24" y="24"/>
+			</Size>
+			<Anchors>
+				<Anchor point="RIGHT"/>
+			</Anchors>
+		</HighlightTexture>
+	</Button>
+
+	<Texture name="HelpPlateArrowUp" file="Interface\TalentFrame\TalentFrame-Parts" virtual="true" >
+		<Size x="53" y="21"/>
+		<TexCoords left="0.78515625" right="0.99218750" bottom="0.54687500" top="0.58789063"/>
+	</Texture>
+
+	<Texture name="HelpPlateArrowUp-Glow" file="Interface\TalentFrame\TalentFrame-Parts" virtual="true" >
+		<Size x="65" y="28"/>
+		<TexCoords left="0.40625000" right="0.66015625" bottom="0.77343750" top="0.82812500"/>
+	</Texture>
+
+	<Frame name="GlowBoxArrowTemplateUp" virtual="true">
+		<Size x="53" y="21"/>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="$parentArrow" inherits="HelpPlateArrowUp">
+					<Anchors>
+						<Anchor point="TOPLEFT"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+			<Layer level="BORDER">
+				<Texture name="$parentGlow" inherits="HelpPlateArrowUp-Glow" alphaMode="ADD" alpha="0.1">
+					<Anchors>
+						<Anchor point="TOP"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+	</Frame>
+
+	<Texture name="BF_SuitSelectButtonNormalTexture" file = "Interface\AddOns\BigFoot\Media\select1.tga" >
+		<Size x="130" y="24"/>
+		<TexCoords left="0" right="0.75" top="0" bottom="0.16"/>
+	</Texture>
+
+	<Texture name="BF_SuitOption_LeftBorder" file="Interface\AddOns\BigFoot\Media\SuitOption_BG.tga" virtual="true">
+		<Size x="32" y="332"/>
+		<TexCoords left="0" right="0.5" top="0" bottom="0.65"/>
+	</Texture>
+
+	<Texture name="BF_SuitOption_RightBorder" file="Interface\AddOns\BigFoot\Media\SuitOption_BG.tga" virtual="true">
+		<Size x="32" y="332"/>
+		<TexCoords left="0.5" right="1" top="0" bottom="0.65"/>
+	</Texture>
+
+	<Texture name="BF_SuitOption_RepeatBorder" file="Interface\AddOns\BigFoot\Media\SuitOption_BG.tga" virtual="true">
+		<Size x="16" y="332"/>
+		<TexCoords left="0.28" right="0.5" top="0" bottom="0.65"/>
+	</Texture>
+
+	<CheckButton name="BF_ConfigCheckButtonTemplate" motionScriptsWhileDisabled="true" virtual="true" hidden="true">
+		<Size>
+			<AbsDimension x="23" y="23"/>
+		</Size>
+		<HitRectInsets>
+			<AbsInset left="0" right="-300" top="0" bottom="0"/>
+		</HitRectInsets>
+		<Layers>
+			<Layer level="OVERLAY">
+			<FontString name="$parentText" inherits="DialogButtonNormalText" justifyH="LEFT" parentKey="text" >
+					<Size x="0" y="0"/>
+					<Anchors>
+						<Anchor point="LEFT"  relativeTo="$parent" relativePoint="RIGHT"/>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnEnter>
+				BigfootNewMainFrame_ConfigSetting_OnEnter(self)
+			</OnEnter>
+			<OnLeave>
+				BigFootNew_Tooltip:Hide()
+			</OnLeave>
+			<OnDisable>
+				BigfootNewMainFrame_ConfigSettingCheckButton_OptionIdent(self,true);
+			</OnDisable>
+			<OnEnable>
+				BigfootNewMainFrame_ConfigSettingCheckButton_OptionIdent(self,not self:GetChecked());
+			</OnEnable>
+			<OnClick>
+				BigfootNewMainFrame_ConfigSettingCheckButton_OnClick(self);
+			</OnClick>
+		</Scripts>
+		<NormalTexture file="Interface\Buttons\UI-CheckBox-Up"/>
+		<PushedTexture file="Interface\Buttons\UI-CheckBox-Down"/>
+		<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD"/>
+		<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check"/>
+		<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled"/>
+	</CheckButton>
+
+	<Button name="CheckButtonTextTemplate" virtual="true" >
+		<ButtonText>
+			<Anchors>
+				<Anchor point="LEFT">
+				</Anchor>
+			</Anchors>
+		</ButtonText>
+		<NormalFont style="GameFontHighlightSmall"/>
+	</Button>
+
+	<Font name="BF_DialogButtonDisableText" inherits="SystemFont_Large" virtual="true">
+		<Color r="0.5" g="0.5" b="0.5"/>
+	</Font>
+
+	<Button name="BF_SuitCheckButtonTemplate" virtual="true" >
+		<Size>
+			<AbsDimension x="430" y="30"/>
+		</Size>
+		<Frames>
+			<CheckButton name="$parentCheckButton" parentKey="CheckButton" >
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+					</Anchor>
+					<Anchor point="BOTTOMRIGHT" relativeTo="$parent" relativePoint="BOTTOMRIGHT">
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentNum" inherits="DialogButtonNormalText" parentKey="num">
+							<Size x="45" y="45"/>
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parent" relativePoint="LEFT">
+								</Anchor>
+							</Anchors>
+						</FontString>
+						<FontString name="$parentSuitName" inherits="DialogButtonNormalText" parentKey="suitname">
+							<Size x="70" y="45"/>
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parentNum" relativePoint="RIGHT">
+								</Anchor>
+							</Anchors>
+						</FontString>
+						<FontString name="$parentSavingTime" inherits="DialogButtonNormalText" parentKey="time">
+							<Size x="100" y="45"/>
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parentSuitName" relativePoint="RIGHT">
+								</Anchor>
+							</Anchors>
+						</FontString>
+						<FontString name="$parentCharaterName" inherits="DialogButtonNormalText" parentKey="charactername">
+							<Size x="150" y="45"/>
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parentSavingTime" relativePoint="RIGHT">
+								</Anchor>
+							</Anchors>
+						</FontString>
+						<FontString name="$parentEnableNum" inherits="DialogButtonNormalText" parentKey="enablenum">
+							<Size x="100" y="45"/>
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parentCharaterName" relativePoint="RIGHT">
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<HighlightTexture file="Interface\AddOns\BigFoot\Media\hover_bg.tga" setAllPoints="true" alphaMode="ADD">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+						</Anchor>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parent" relativePoint="BOTTOMRIGHT">
+						</Anchor>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="0.5"/>
+				</HighlightTexture>
+				<CheckedTexture file="Interface\FriendsFrame\UI-FriendsFrame-HighlightBar-Blue" setAllPoints="true" alphaMode="ADD"/>
+				<Scripts>
+					<OnClick>
+						BF_SuitCheckButtOnClick(self)
+					</OnClick>
+				</Scripts>
+			</CheckButton>
+		</Frames>
+	</Button>
+
+	<Button name="BF_ConfigButtonTemplate" motionScriptsWhileDisabled="true" inherits="UIPanelButtonTemplate" virtual="true" >
+		<Size>
+			<AbsDimension x="100" y="21"/>
+		</Size>
+		<NormalFont style="DialogButtonNormalText"/>
+		<HighlightFont style="DialogButtonNormalText"/>
+		<DisabledFont style="BF_DialogButtonDisableText"/>
+		<Scripts>
+			<OnDisable>
+				local name = self:GetName();
+				self.Left:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled");
+				self.Middle:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled");
+				self.Right:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled");
+				BigfootNewMainFrame_ConfigSettingCheckButton_OptionIdent(self,true);
+			</OnDisable>
+			<OnEnable>
+				local name = self:GetName();
+				self.Left:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up");
+				self.Middle:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up");
+				self.Right:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up");
+				BigfootNewMainFrame_ConfigSettingCheckButton_OptionIdent(self,false);
+			</OnEnable>
+			<OnClick>
+				BigfootNewMainFrame_ConfigSettingkButton_OnClick(self);
+			</OnClick>
+			<OnEnter>
+				BigfootNewMainFrame_ConfigSetting_OnEnter(self)
+			</OnEnter>
+			<OnLeave>
+				BigFootNew_Tooltip:Hide()
+			</OnLeave>
+		</Scripts>
+	</Button>
+
+	<Texture name="BF_SettingFrameToggle_Pushed" file="Interface\AddOns\BigFoot\Media\Arrow.tga" virtual="true">
+		<Size x="51.2" y="600"/>
+		<TexCoords left="0" right="1" top="0" bottom="0.75"/>
+	</Texture>
+
+	<Texture name="BF_SettingFrameToggle_ButtonUp" file="Interface\AddOns\BigFoot\Media\Arrow.tga" virtual="true">
+		<Size x="51.2" y="600"/>
+		<TexCoords left="0.15" right="1" top="0" bottom="0.75"/>
+	</Texture>
+
+	<Texture name="BF_MainFrame_Repeat" file="Interface\AddOns\BigFoot\Media\BF_BG.tga" virtual="true">
+		<Size x="51.2" y="600"/>
+		<TexCoords left="0.33" right="0.65" top="0" bottom="1"/>
+	</Texture>
+
+	<Texture name="BF_MainFrame_LeftBorder" file="Interface\AddOns\BigFoot\Media\BF_BG.tga" virtual="true">
+		<Size x="50" y="600"/>
+		<TexCoords left="0" right="0.33" top="0" bottom="1"/>
+	</Texture>
+
+	<Texture name="BF_MainFrame_RightBorder" file="Interface\AddOns\BigFoot\Media\BF_BG.tga" virtual="true">
+		<Size x="75" y="600"/>
+		<TexCoords left="0.5" right="1" top="0" bottom="1"/>
+	</Texture>
+
+	<Button name="BigfootNewSearchBtnTemplate" virtual="true" hidden="true">
+		<Size x="275" y="27"/>
+		<Layers>
+			<Layer level="OVERLAY" textureSubLevel="2">
+				<Texture name="$parentIconFrame" inherits="UI-EJ-SearchIconFrameLg">
+					<Size x="21" y="21"/>
+					<Anchors>
+						<Anchor point="LEFT" x="5" y="1"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+			<Layer level="OVERLAY">
+				<Texture name="$parentIcon" file="Interface\Icons\Ability_ThunderClap" parentKey="icon">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentIconFrame" x="1" y="-2"/>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentIconFrame" x="-1" y="1"/>
+					</Anchors>
+				</Texture>
+				<FontString name="$parentName" inherits="GameFontNormalSmall" justifyH="LEFT" parentKey="name" text="ENCOUNTER">
+					<Size x="400" y="0"/>
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentIcon" relativePoint="RIGHT" x="5" y="0"/>
+						<Anchor point="RIGHT" x="-5" y="0"/>
+					</Anchors>
+					<Color r="0.96875" g="0.8984375" b="0.578125" a="1"/>
+				</FontString>
+			</Layer>
+		</Layers>
+		<NormalTexture inherits="_SearchBarSm">
+		</NormalTexture>
+		<PushedTexture inherits="_SearchBarSm">
+		</PushedTexture>
+		<HighlightTexture inherits="UI-EJ-SearchBarHighlightSm">
+		</HighlightTexture>
+		<Scripts>
+			<OnEnter>
+				if self.itemID then
+					GameTooltip:SetOwner(self, "ANCHOR_LEFT");
+					GameTooltip:SetItemByID(self.itemID);
+					self.showingTooltip = true;
+				end
+			</OnEnter>
+			<OnLeave>
+				GameTooltip:Hide();
+				self.showingTooltip = false;
+			</OnLeave>
+			<OnShow>
+				self:SetFrameLevel(self:GetParent():GetFrameLevel() + 10);
+			</OnShow>
+			<OnClick>
+				EncounterJournal_SelectSearch(self:GetID())
+				PlaySound("igSpellBookOpen");
+			</OnClick>
+		</Scripts>
+	</Button>
+
+	<Button name="BF_MainFrame_Check_Enabled" virtual="true"  >
+		<Size>
+			<AbsDimension x="25" y="25"/>
+		</Size>
+		<Anchors>
+			<Anchor point="LEFT">
+				<Offset>
+					<AbsDimension x="5" y="0"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Scripts>
+			<OnEnter>
+				BigFootNew_Tooltip:SetOwner(self)
+				BigFootNew_Tooltip:AddLine(BF_EnableAllOptionTooltip,1,1,1,1)
+				BigFootNew_Tooltip:SetAnchorType("ANCHOR_LEFT",x,0)
+				BigFootNew_Tooltip:SetScale(0.7)
+				BigFootNew_Tooltip:Show()
+			</OnEnter>
+			<OnLeave>
+				BigFootNew_Tooltip:Hide()
+			</OnLeave>
+		</Scripts>
+		<NormalTexture file="Interface\Addons\BigFoot\Media\selectAllButton.tga" alpha="0.58">
+			<TexCoords left="0" right="0.65" top="0" bottom="0.65"/>
+			<Size x="20" y="20"/>
+			<Anchors>
+				<Anchor point="BOTTOM" relativeTo="$parent" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="1.5" y="1.5"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</NormalTexture>
+		<HighlightTexture alphaMode="ADD" file="Interface\Minimap\UI-Minimap-ZoomButton-Highlight"/>
+    </Button>
+
+	<EditBox name="BigfootNewSearchBoxTemplate" inherits="SearchBoxTemplate" letters="40" virtual="true">
+		<Size x="280" y="20"/>
+		<Anchors>
+			<Anchor point="TOPRIGHT" x="-30" y="-50"/>
+		</Anchors>
+		<Frames>
+			<Button name="$parentSearchButton1" inherits="BigfootNewSearchBtnTemplate" parentKey="sbutton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+					<Anchor point="TOPRIGHT" relativePoint="BOTTOMRIGHT" x="-5" y="0"/>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<Texture name="$parentBotLeftCorner" inherits="UI-Frame-BotCornerLeft" parentKey="boarderAnchor">
+							<Anchors>
+								<Anchor point="LEFT" x="-7" y="0"/>
+								<Anchor point="BOTTOM" x="0" y="-5"/>
+							</Anchors>
+							<Color r="0.5" g="0.5" b="0.5" a="1"/>
+						</Texture>
+						<Texture name="$parentBotRightCorner" inherits="UI-Frame-BotCornerRight">
+							<Anchors>
+								<Anchor point="BOTTOM" relativeTo="$parentBotLeftCorner" x="0" y="0"/>
+								<Anchor point="RIGHT" x="4" y="0"/>
+							</Anchors>
+							<Color r="0.5" g="0.5" b="0.5" a="1"/>
+						</Texture>
+						<Texture name="$parentBottomBorder" inherits="_UI-Frame-Bot">
+							<Anchors>
+								<Anchor point="BOTTOMLEFT" relativeTo="$parentBotLeftCorner" relativePoint="BOTTOMRIGHT" y="0"/>
+								<Anchor point="BOTTOMRIGHT" relativeTo="$parentBotRightCorner" relativePoint="BOTTOMLEFT" y="0"/>
+							</Anchors>
+							<Color r="0.5" g="0.5" b="0.5" a="1"/>
+						</Texture>
+						<Texture name="$parentLeftBorder" inherits="!UI-Frame-LeftTile" parentKey="leftBorderBar">
+							<Anchors>
+								<Anchor point="TOP" x="0" y="1" />
+								<Anchor point="BOTTOMLEFT" relativeTo="$parentBotLeftCorner" relativePoint="TOPLEFT"/>
+							</Anchors>
+							<Color r="0.5" g="0.5" b="0.5" a="1"/>
+						</Texture>
+						<Texture name="$parentRightBorder" inherits="!UI-Frame-RightTile">
+							<Anchors>
+								<Anchor point="TOP" x="0" y="1" />
+								<Anchor point="BOTTOMRIGHT" relativeTo="$parentBotRightCorner" relativePoint="TOPRIGHT" x="1" y="0"/>
+							</Anchors>
+							<Color r="0.5" g="0.5" b="0.5" a="1"/>
+						</Texture>
+					</Layer>
+				</Layers>
+			</Button>
+			<Button name="$parentSearchButton2" inherits="BigfootNewSearchBtnTemplate" parentKey="sbutton2">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentSearchButton1" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+					<Anchor point="TOPRIGHT" relativeTo="$parentSearchButton1" relativePoint="BOTTOMRIGHT" x="0" y="0"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentSearchButton3" inherits="BigfootNewSearchBtnTemplate" parentKey="sbutton3">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentSearchButton2" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+					<Anchor point="TOPRIGHT" relativeTo="$parentSearchButton2" relativePoint="BOTTOMRIGHT" x="0" y="0"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentSearchButton4" inherits="BigfootNewSearchBtnTemplate" parentKey="sbutton4">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentSearchButton3" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+					<Anchor point="TOPRIGHT" relativeTo="$parentSearchButton3" relativePoint="BOTTOMRIGHT" x="0" y="0"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentSearchButton5" inherits="BigfootNewSearchBtnTemplate" parentKey="sbutton5">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentSearchButton4" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+					<Anchor point="TOPRIGHT" relativeTo="$parentSearchButton4" relativePoint="BOTTOMRIGHT" x="0" y="0"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentShowALL" parentKey="showAllResults" hidden="true">
+				<Size x="275" y="24"/>
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentSearchButton1" x="0" y="0"/>
+					<Anchor point="RIGHT" relativeTo="$parentSearchButton1" x="0" y="0"/>
+					<Anchor point="TOP" relativeTo="$parentSearchButton5" relativePoint="BOTTOM" x="0" y="0"/>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormal" justifyH="LEFT" parentKey="text" text="ENCOUNTER">
+							<Size x="0" y="0"/>
+							<Anchors>
+								<Anchor point="CENTER" x="0" y="0"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<NormalTexture inherits="_SearchBarSm">
+				</NormalTexture>
+				<PushedTexture inherits="_SearchBarSm">
+				</PushedTexture>
+				<HighlightTexture inherits="UI-EJ-SearchBarHighlightSm">
+				</HighlightTexture>
+				<Scripts>
+					<OnShow>
+						self:SetFrameLevel(self:GetParent():GetFrameLevel() + 10);
+					</OnShow>
+					<OnClick>
+						EncounterJournal_ShowFullSearch()
+						PlaySound("igMainMenuOptionCheckBoxOn");
+					</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+		<Scripts>
+			<OnLoad function="BigfootNewMainFrame_OnSearchBox_OnLoad"/>
+			<OnEnterPressed function="BigfootNewMainFrame_OnSearchBoxChange"/>
+			<OnTextChanged function="BigfootNewMainFrame_OnSearchBoxChange"/>
+			<OnEditFocusGained function="BigfootNewMainFrame_OnEditFocusGained"/>
+			<OnEditFocusLost function="BigfootNewMainFrame_OnEditFocusLost"/>
+		</Scripts>
+	</EditBox>
+
+	<CheckButton name="BF_CategoryButtonTemplate" virtual="true">
+		<Size>
+			<AbsDimension x="89" y="22"/>
+		</Size>
+		<CheckedTexture name="$parentCheckTexture" file="Interface\AddOns\BigFoot\Media\tab64.tga" alphaMode="ADD" alpha="0.5">
+			<Anchors>
+				<Anchor point="TOPLEFT" >
+					<Offset>
+						<AbsDimension x="-2" y="5"/>
+					</Offset>
+				</Anchor>
+				<Anchor point="BOTTOMRIGHT">
+					<Offset>
+						<AbsDimension x="-15" y="-4"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<TexCoords left="0.25" right="0.50" top="0" bottom="1"/>
+		</CheckedTexture>
+		<HighlightTexture name="$parentHighlightTexture" file="Interface\AddOns\BigFoot\Media\tab64.tga" alphaMode="ADD" alpha="0.7">
+			<Anchors>
+				<Anchor point="TOPLEFT" >
+					<Offset>
+						<AbsDimension x="-1" y="5"/>
+					</Offset>
+				</Anchor>
+				<Anchor point="BOTTOMRIGHT">
+					<Offset>
+						<AbsDimension x="-14" y="-4"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<TexCoords left="0.5" right="0.75" top="0" bottom="1"/>
+		</HighlightTexture>
+		<NormalTexture name="$parentNormalTexture" file="Interface\AddOns\BigFoot\Media\tab64.tga">
+			<Size>
+				<AbsDimension x="24" y="24"/>
+			</Size>
+			<Anchors>
+				<Anchor point="TOPLEFT" >
+					<Offset>
+						<AbsDimension x="-1.5" y="5"/>
+					</Offset>
+				</Anchor>
+				<Anchor point="BOTTOMRIGHT">
+					<Offset>
+						<AbsDimension x="-14" y="-4"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<TexCoords left="0" right="0.25" top="0" bottom="1"/>
+		</NormalTexture>
+		<Layers>
+			<Layer name="OVERLAY">
+				<FontString name="$parentText" parentKey="text" inherits="GameFontNormalSmall" justifyH="CENTER">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="-4" y="12"/>
+							</Offset>
+						</Anchor>
+						<Anchor point="BOTTOMRIGHT">
+							<Offset>
+								<AbsDimension x="-12" y="-5"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnEnter>
+				BF_NewCategoryButtonOnEnter(self)
+			</OnEnter>
+			<OnLeave>
+				BF_NewCategoryButtonOnLeave()
+			</OnLeave>
+			<OnClick>
+				BF_NewCategoryButtonOnClick(self)
+			</OnClick>
+		</Scripts>
+	</CheckButton>
+
+	<Button name="BF_AddonListElemButtonTemplate" virtual="true">
+        <Size>
+            <AbsDimension x="710" y="35"/>
+        </Size>
+		<NormalFont style="DialogButtonNormalText"/>
+        <Layers>
+            <Layer level="BACKGROUND">
+                <FontString name="$parentTitleText" parentKey= "titletext" inherits="DialogButtonNormalText" justifyH="LEFT">
+                    <Size>
+                        <AbsDimension x="100" y="12"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="LEFT">
+                            <Offset>
+                                <AbsDimension x="38" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+                <FontString name="$parentNameText" inherits="DialogButtonNormalText" parentKey="nametext" justifyH="LEFT">
+                    <Size>
+                        <AbsDimension x="100" y="12"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="LEFT" relativeTo="$parentTitleText" relativePoint="RIGHT">
+                            <Offset>
+                                <AbsDimension x="10" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+                <FontString name="$parentInfoText" parentKey="infotext" inherits="DialogButtonNormalText" justifyH="LEFT">
+					<Size>
+                        <AbsDimension x="300" y="12"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="LEFT" relativeTo="$parentNameText" relativePoint="RIGHT">
+                            <Offset>
+                                <AbsDimension x="20" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+				<FontString name="$parentConsumeText" parentKey="consumetext" inherits="DialogButtonNormalText" justifyH="RIGHT" >
+                    <Size>
+                        <AbsDimension x="80" y="12"/>
+                    </Size>
+					<Anchors>
+                        <Anchor point="LEFT" relativeTo="$parentInfoText" relativePoint="RIGHT">
+                            <Offset>
+                                <AbsDimension x="0" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+				<FontString name="$parentStatusText" parentKey="statustext" inherits="DialogButtonNormalText" justifyH="RIGHT">
+					<Size>
+                        <AbsDimension x="80" y="12"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="RIGHT">
+                            <Offset>
+                                <AbsDimension x="10" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+            </Layer>
+			<Layer level="ARTWORK">
+				<Texture name="$parentNew_Sign" parentKey="new" hidden="true" file="Interface\AddOns\BigFoot\Media\New.tga">
+					<Size>
+                        <AbsDimension x="15" y="15"/>
+                    </Size>
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentTitleText" relativePoint="RIGHT">
+							<Offset>
+								<AbsDimension x="2" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentUp_Sign" parentKey="up" hidden="true" file="Interface\AddOns\BigFoot\Media\Up.tga">
+					<Size>
+                        <AbsDimension x="15" y="15"/>
+                    </Size>
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentTitleText" relativePoint="RIGHT">
+							<Offset>
+								<AbsDimension x="2" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentHighlightTexture" parentKey="highlight" hidden="true" file="Interface\AddOns\BigFoot\Media\hover_bg.tga" alphaMode="ADD">
+					<Size>
+                        <AbsDimension x="700" y="50"/>
+                    </Size>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentTitleText" relativePoint="TOPLEFT">
+							<Offset>
+								<AbsDimension x="-45" y="10"/>
+							</Offset>
+						</Anchor>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentStatusText" relativePoint="BOTTOMRIGHT">
+							<Offset>
+								<AbsDimension x="65" y="-10"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="0.5"/>
+				</Texture>
+				<Texture name="$parentCheckedTexture" parentKey="TChecked" hidden="true" file="Interface\FriendsFrame\UI-FriendsFrame-HighlightBar-Blue" setAllPoints="true" alphaMode="ADD"/>
+			</Layer>
+		</Layers>
+        <Frames>
+			<CheckButton name="$parentEnabled" parentKey="enabled">
+                <Size>
+                    <AbsDimension x="25" y="25"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="LEFT">
+                        <Offset>
+                            <AbsDimension x="5" y="0"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnEnter>
+
+                    </OnEnter>
+                    <OnLeave>
+
+                    </OnLeave>
+                    <OnClick>
+						BFNew_OnAddonEnableChecked(self)
+						self:GetParent().option:Click()
+                    </OnClick>
+                </Scripts>
+                <NormalTexture file="Interface\Buttons\UI-CheckBox-Up"/>
+                <PushedTexture file="Interface\Buttons\UI-CheckBox-Down"/>
+                <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD"/>
+                <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check"/>
+                <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled"/>
+            </CheckButton>
+			<CheckButton name="$parentOption" parentKey="option">
+                <Size>
+                    <AbsDimension x="200" y="50"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentTitleText" relativePoint="LEFT">
+                        <Offset>
+                            <AbsDimension x="-20" y="0"/>
+                        </Offset>
+                    </Anchor>
+					<Anchor point="RIGHT" relativeTo="$parentNameText" relativePoint="RIGHT">
+                        <Offset>
+                            <AbsDimension x="20" y="0"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+
+
+				<Scripts>
+                    <OnEnter>
+						BigfootNewMainFrame_OnElemButtonEnter(self)
+                    </OnEnter>
+                    <OnLeave>
+                        BigfootNewMainFrame_OnElemButtonLeave(self)
+                    </OnLeave>
+                    <OnClick>
+                       BigfootNewMainFrame_OnElemButtOnClick(self)
+                    </OnClick>
+                </Scripts>
+            </CheckButton>
+		    <Button name="$parentInfo" parentKey="info">
+				<Size x="300" y="50"/>
+				<Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentInfoText" relativePoint="LEFT">
+                        <Offset>
+                            <AbsDimension x="-30" y="0"/>
+                        </Offset>
+                    </Anchor>
+					 <Anchor point="RIGHT" relativeTo="$parentInfoText" relativePoint="RIGHT">
+                        <Offset>
+                            <AbsDimension x="15" y="0"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+				<Scripts>
+					<OnClick>
+						BigfootNewMainFrame_OnElemButtOnClick(self)
+					</OnClick>
+					<OnEnter>
+						BigfootNewMainFrame_OnElemButtonEnter(self)
+						BigfootNewMainFrame_ShowInfoGameTooltip(self)
+
+					</OnEnter>
+					<OnLeave>
+						BigfootNewMainFrame_OnElemButtonLeave(self)
+						BigFootNew_Tooltip:Hide()
+					</OnLeave>
+				</Scripts>
+
+			</Button>
+			<Button name="$parentConsume" parentKey="consume">
+				<Size x="100" y="50"/>
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentConsumeText" relativePoint="LEFT">
+						<Offset>
+							<AbsDimension x="-20" y="0"/>
+						</Offset>
+					</Anchor>
+					<Anchor point="RIGHT" relativeTo="$parentConsumeText" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="20" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnEnter>
+						BigfootNewMainFrame_OnElemButtonEnter(self)
+					</OnEnter>
+					<OnLeave>
+						BigfootNewMainFrame_OnElemButtonLeave(self)
+					</OnLeave>
+					<OnClick>
+						BigfootNewMainFrame_OnElemButtOnClick(self)
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parentStatus" parentKey="status">
+				<Size x="100" y="50"/>
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentConsume" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="-20" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnEnter>
+						BigfootNewMainFrame_OnElemButtonEnter(self)
+						BigfootNewMainFrame_ShowStatusGameTooltip(self)
+					</OnEnter>
+					<OnLeave>
+						BigfootNewMainFrame_OnElemButtonLeave(self)
+						BigFootNew_Tooltip:Hide()
+					</OnLeave>
+					<OnClick>
+						BigfootNewMainFrame_OnElemButtOnClick(self)
+					</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+    </Button>
+
+	<Button name="BF_Tab_Template" motionScriptsWhileDisabled="true" virtual="true">
+        <Size>
+            <AbsDimension x="10" y="32"/>
+        </Size>
+        <Layers>
+        	<Layer level="BACKGROUND">
+        		<Texture name="$parentLeftDisabled" file="Interface\PaperDollInfoFrame\UI-Character-ActiveTab" >
+        			<Size>
+        				<AbsDimension x="20" y="35"/>
+        			</Size>
+        			<Anchors>
+        				<Anchor point="TOPLEFT">
+        					<Offset>
+        						<AbsDimension x="0" y="0"/>
+        					</Offset>
+        				</Anchor>
+        			</Anchors>
+					<TexCoords left="1.0" right="0.84375" top="0.546875" bottom="0"/>
+        		</Texture>
+				<Texture name="$parentMiddleDisabled" file="Interface\PaperDollInfoFrame\UI-Character-ActiveTab">
+        			<Size>
+        				<AbsDimension x="88" y="35"/>
+        			</Size>
+        			<Anchors>
+        				<Anchor point="LEFT" relativeTo="$parentLeftDisabled" relativePoint="RIGHT"/>
+        			</Anchors>
+					<TexCoords left="0.84375" right="0.15625" top="0.546875" bottom="0"/>
+        		</Texture>
+				<Texture name="$parentRightDisabled" file="Interface\PaperDollInfoFrame\UI-Character-ActiveTab">
+        			<Size>
+        				<AbsDimension x="20" y="35"/>
+        			</Size>
+        			<Anchors>
+        				<Anchor point="LEFT" relativeTo="$parentMiddleDisabled" relativePoint="RIGHT"/>
+        			</Anchors>
+					<TexCoords left="0.15625" right="0" top="0.546875" bottom="0"/>
+
+        		</Texture>
+				<Texture name="$parentLeft" file="Interface\PaperDollInfoFrame\UI-Character-InActiveTab">
+        			<Size>
+        				<AbsDimension x="20" y="32"/>
+        			</Size>
+        			<Anchors>
+        				<Anchor point="TOPLEFT" x="0" y="-1"/>
+        			</Anchors>
+					<TexCoords left="1.0" right="0.84375" top="1.0" bottom="0"/>
+        		</Texture>
+				<Texture name="$parentMiddle" file="Interface\PaperDollInfoFrame\UI-Character-InActiveTab">
+        			<Size>
+        				<AbsDimension x="88" y="32"/>
+        			</Size>
+        			<Anchors>
+        				<Anchor point="LEFT" relativeTo="$parentLeft" relativePoint="RIGHT"/>
+					</Anchors>
+					<TexCoords left="0.84375" right="0.15625" top="1.0" bottom="0"/>
+        		</Texture>
+				<Texture name="$parentRight" file="Interface\PaperDollInfoFrame\UI-Character-InActiveTab">
+        			<Size>
+        				<AbsDimension x="20" y="32"/>
+        			</Size>
+        			<Anchors>
+        				<Anchor point="LEFT" relativeTo="$parentMiddle" relativePoint="RIGHT"/>
+        			</Anchors>
+					<TexCoords left="0.15625" right="0" top="1.0" bottom="0"/>
+        		</Texture>
+        	</Layer>
+        </Layers>
+		<Scripts>
+			<OnLoad>
+				self:SetFrameLevel(self:GetFrameLevel() + 4);
+				self:RegisterEvent("DISPLAY_SIZE_CHANGED");
+			</OnLoad>
+			<OnEvent>
+				if (self:IsVisible()) then
+					PanelTemplates_TabResize(self, 0, nil, 60,80);
+				end
+			</OnEvent>
+			<OnClick>
+				BigfootNewMainFrame_selectTab(self)
+			</OnClick>
+			<OnShow>
+				PanelTemplates_TabResize(self, 0, nil, 60,80);
+			</OnShow>
+			<OnEnter>
+				local buttonText = _G[self:GetName().."Text"];
+				if (buttonText and buttonText:IsTruncated()) then
+					GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+					GameTooltip:SetText(buttonText:GetText());
+				end
+			</OnEnter>
+			<OnLeave>
+				GameTooltip:Hide();
+			</OnLeave>
+		</Scripts>
+		<ButtonText name="$parentText">
+			<Size>
+				<AbsDimension x="0" y="10"/>
+			</Size>
+			<Anchors>
+				<Anchor point="CENTER">
+					<Offset>
+						<AbsDimension x="0" y="2"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</ButtonText>
+		<NormalFont style="GameFontNormalSmall"/>
+		<HighlightFont style="GameFontHighlightSmall"/>
+		<DisabledFont style="GameFontHighlightSmall"/>
+		<!-- <HighlightTexture name="$parentHighlightTexture" file="Interface\PaperDollInfoFrame\UI-Character-Tab-RealHighlight" alphaMode="ADD">
+			<Rotation radians="180"/>
+			<Anchors>
+				<Anchor point="TOPLEFT">
+					<Offset>
+						<AbsDimension x="3" y="5"/>
+					</Offset>
+				</Anchor>
+				<Anchor point="BOTTOMRIGHT">
+					<Offset>
+						<AbsDimension x="-3" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</HighlightTexture>-->
+    </Button>
+
+	<Button name="BF_MenuButtonTemplate" inherits="UIPanelButtonTemplate" virtual="true">
+		<Size>
+			<AbsDimension x="144" y="21"/>
+		</Size>
+		<Animations>
+			<AnimationGroup parentKey="blinkAnim" looping="BOUNCE">
+				<Alpha target="$parentBlinkTexture" change="-1" duration="0.5" order="1"/>
+				<Scripts>
+					<OnPlay>
+						if not _G[self:GetParent():GetName() .. "BlinkTexture"]:IsShown() then
+							_G[self:GetParent():GetName() .. "BlinkTexture"]:Show()
+						end
+					</OnPlay>
+					<OnStop>
+						if  _G[self:GetParent():GetName() .. "BlinkTexture"]:IsShown() then
+							_G[self:GetParent():GetName() .. "BlinkTexture"]:Hide()
+						end
+					</OnStop>
+				</Scripts>
+			</AnimationGroup>
+		</Animations>
+		<Frames>
+			<Frame name="$parentBlinkTexture" parentKey="blink" hidden="true">
+				<Anchors>
+					<Anchor point="BOTTOMRIGHT" relativeTo="$parent" relativePoint="BOTTOMRIGHT"/>
+					<Anchor point="TOPLEFT"  relativeTo="$parent" relativePoint="TOPLEFT" />
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentBlinkLeft" alphaMode="ADD"  file="Interface\AddOns\BigFoot\Media\buttonblink.tga">
+							<Size>
+								<AbsDimension x="5" y="24"/>
+							</Size>
+							<Anchors>
+								<Anchor point="TOPLEFT">
+									<Offset>
+										<AbsDimension x="2" y="-2"/>
+									</Offset>
+								</Anchor>
+								<Anchor point="BOTTOMLEFT">
+									<Offset>
+										<AbsDimension x="2" y="0"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<TexCoords right="0.1" left="0" bottom="0.65" top="0"/>
+						</Texture>
+						<Texture name="$parentBlinkRight"  alphaMode="ADD"  file="Interface\AddOns\BigFoot\Media\buttonblink.tga">
+							<Size>
+								<AbsDimension x="7" y="24"/>
+							</Size>
+							<TexCoords right="0.6" left="0.45" bottom="0.65" top="0"/>
+							<Anchors>
+								<Anchor point="TOPRIGHT">
+									<Offset>
+										<AbsDimension x="2.5" y="-2"/>
+									</Offset>
+								</Anchor>
+								<Anchor point="BOTTOMRIGHT">
+									<Offset>
+										<AbsDimension x="2.5" y="0"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</Texture>
+						<Texture name="$parentBlinkMid"  alphaMode="ADD" file="Interface\AddOns\BigFoot\Media\buttonblink.tga">
+							<TexCoords right="0.45" left="0.1" bottom="0.65" top="0"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parentBlinkLeft" relativePoint="TOPRIGHT"/>
+								<Anchor point="BOTTOMRIGHT" relativeTo="$parentBlinkRight" relativePoint="BOTTOMLEFT"/>
+							</Anchors>
+						</Texture>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+		<NormalFont style="DialogButtonNormalText"/>
+		<HighlightFont style="DialogButtonNormalText"/>
+		<DisabledFont style="BF_DialogButtonDisableText"/>
+	</Button>
+
+	<Button name="BF_HeaderButtonTemplate" virtual="true">
+		<Size>
+			<AbsDimension x="10" y="24"/>
+		</Size>
+		<Backdrop bgFile="Interface\AddOns\BigFoot\Media\MainFrameHeader_BG.tga" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="0" right="0" top="0" bottom="0"/>
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="1000"/>
+			</TileSize>
+		</Backdrop>
+		<Layers>
+			<Layer level="BACKGROUND" textureSubLevel="2">
+				<Texture name="$parentLeft" file="Interface\AddOns\BigFoot\Media\arr_bg.tga">
+					<Size>
+						<AbsDimension x="5" y="24"/>
+					</Size>
+					<Anchors>
+						<Anchor point="BOTTOMLEFT"/>
+						<Anchor point="TOPLEFT" />
+					</Anchors>
+					<TexCoords right="0.3" left="0" bottom="0.77" top="0"/>
+				</Texture>
+				<Texture name="$parentRight" file="Interface\AddOns\BigFoot\Media\arr_bg.tga">
+					<Size>
+						<AbsDimension x="5" y="24"/>
+					</Size>
+					<Anchors>
+						<Anchor point="BOTTOMRIGHT" />
+						<Anchor point="TOPRIGHT" />
+					</Anchors>
+					<TexCoords right="0" left="0.3" bottom="0.77" top="0"/>
+				</Texture>
+				<Texture name="$parentMiddle" file="Interface\AddOns\BigFoot\Media\arr_bg.tga">
+					<Size>
+						<AbsDimension x="53" y="24"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentLeft" relativePoint="TOPRIGHT">
+							<Offset>
+								<AbsDimension x="0" y="0"/>
+							</Offset>
+						</Anchor>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentRight" relativePoint="BOTTOMLEFT">
+							<Offset>
+								<AbsDimension x="0" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<TexCoords left="0.3" right="0.3" top="0" bottom="0.77"/>
+				</Texture>
+			</Layer>
+			<Layer level="BACKGROUND" textureSubLevel="3">
+				<Texture name="$parentArrawDown" file="Interface\AddOns\BigFoot\Media\arr_down.tga" hidden="true">
+					<Size>
+						<AbsDimension x="12" y="12"/>
+					</Size>
+					<Anchors>
+						<Anchor point="RIGHT">
+							<Offset>
+								<AbsDimension x="-2" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<TexCoords right="0.5" left="0.05" bottom="0.5" top="0.025"/>
+				</Texture>
+				<Texture name="$parentArrawUp" file="Interface\AddOns\BigFoot\Media\arr_up.tga" hidden="true">
+					<Size>
+						<AbsDimension x="12" y="12"/>
+					</Size>
+					<Anchors>
+						<Anchor point="RIGHT">
+							<Offset>
+								<AbsDimension x="-2" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<TexCoords right="0.5" left="0" bottom="0.5" top="0.025"/>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnEnter>
+				BF_HeaderButtOnEnter(self)
+			</OnEnter>
+			<OnLeave>
+				BF_HeaderButtOnLeave(self)
+			</OnLeave>
+			<OnClick>
+				BF_HeaderButtOnClick(self)
+			</OnClick>
+		</Scripts>
+		<ButtonText>
+			<Anchors>
+				<Anchor point="LEFT">
+					<Offset>
+						<AbsDimension x="8" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</ButtonText>
+		<NormalFont style="GameFontHighlightSmall"/>
+		<HighlightTexture name="$parentHighlightTexture" file="Interface\AddOns\BigFoot\Media\arr_bg.tga" alphaMode="ADD" alpha="0.5">
+			<Anchors>
+				<Anchor point="TOPLEFT" relativeTo="$parent">
+					<Offset>
+						<AbsDimension x="-5" y="1"/>
+					</Offset>
+				</Anchor>
+				<Anchor point="BOTTOMRIGHT" relativeTo="$parent">
+					<Offset>
+						<AbsDimension x="5" y="-2"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<TexCoords left="0" right="1" top="0" bottom="0.78"/>
+		</HighlightTexture>
+	</Button>
+
+	<Frame name="BF_HeaderSuitOptionTitleTemplate" virtual="true">
+		<Size>
+			<AbsDimension x="25" y="34"/>
+		</Size>
+		<Backdrop bgFile="Interface\AddOns\BigFoot\Media\MainFrameHeader_BG.tga" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="0" right="0" top="0" bottom="0"/>
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="1000"/>
+			</TileSize>
+		</Backdrop>
+		<Layers>
+			<Layer name="BACKGROUND">
+				<FontString name="$parentTitle"  parentKey="title" inherits="DialogButtonNormalText" >
+					<Size x="60" y="45"/>
+				</FontString>
+			</Layer>
+		</Layers>
+	</Frame>
+
+	<!-- AddonList ElemButton  -->
+	<Frame name="BF_SuitsDropDownMenuTemplate" virtual="true"  inherits="UIDropDownMenuTemplate" >
+		<Size>
+			<AbsDimension x="100" y="21"/>
+		</Size>
+		<Frames>
+			<Button name="$parentButton"  motionScriptsWhileDisabled="true" inherits="BF_MenuButtonTemplate" >
+				<Size>
+					<AbsDimension x="100" y="21"/>
+				</Size>
+				<ButtonText>
+					<Anchors>
+						<Anchor point="LEFT">
+							<Offset>
+								<AbsDimension x="12" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</ButtonText>
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativeTo="$parentRight">
+						<Offset>
+							<AbsDimension x="-16" y="-20"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<Texture name="$parentArrowTexture" file="Interface\AddOns\BigFoot\Media\selectbuttonArrow.tga">
+							<Size x="20" y="24"/>
+							<Anchors>
+								<Anchor point="RIGHT">
+									<Offset>
+										<AbsDimension x="-8" y="-4"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<TexCoords left="0" right="1" top="0" bottom="0.33"/>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnEnter>
+						local parent = self:GetParent();
+						local myscript = parent:GetScript("OnEnter");
+						if(myscript ~= nil) then
+							myscript(parent);
+						end
+					</OnEnter>
+					<OnLeave>
+						local parent = self:GetParent();
+						local myscript = parent:GetScript("OnLeave");
+						if(myscript ~= nil) then
+							myscript(parent);
+						end
+					</OnLeave>
+					<OnUpdate>
+						 if _G[self:GetParent():GetName() .. "Text"] then
+							self:SetText(_G[self:GetParent():GetName() .. "Text"]:GetText())
+						 end
+					</OnUpdate>
+					<OnClick>
+						ToggleDropDownMenu(nil, nil, self:GetParent());
+						PlaySound("igMainMenuOptionCheckBoxOn");
+					</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+	</Frame>
+
+	<!-- SuitsDropDownMenu-->
+	<Frame name="BigfootNewMainFrame" hidden="true" movable ="true" toplevel="true"  frameStrata="DIALOG"  >
+		<Size>
+            <AbsDimension x="800" y="600"/>
+        </Size>
+		<Anchors>
+			<Anchor point="CENTER">
+				<Offset>
+					<AbsDimension x="10" y="0"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Scripts>
+			<OnMouseDown>
+				BigfootNewMainFrame_MouseDown(self,button);
+			</OnMouseDown>
+			<OnMouseUp>
+				BigfootNewMainFrame_MouseUp(self,button);
+			</OnMouseUp>
+			<OnLoad>
+				self:RegisterForDrag("LeftButton");
+				UIPanelWindows[self:GetName()] = {
+					area = "center",
+					pushable = 0,
+					whileDead = 1
+				}
+				BigfootNewMainFrame_OnLoad(self)
+			</OnLoad>
+			<OnEvent>
+				BigfootNewMainFrame__OnEvent(self, event, ...);
+			</OnEvent>
+			<OnShow>
+				BigfootNewMainFrame_OnShow()
+				TutorialsFrameStart("FirstLogin")
+			</OnShow>
+			<OnHide>
+				HideUIPanel(BigFootReaderFrame);
+				BigfootNewMainFrame_OnHide_SetSuiltState(false)
+			</OnHide>
+		</Scripts>
+		<Frames>
+			<ScrollFrame name="ShieldedFrame" hidden="true" alpha="0.7">
+				<Size>
+					<AbsDimension x="786" y="525"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset>
+							<AbsDimension x="6.5" y="-30"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Backdrop bgFile="Interface\AddOns\BigFoot\Media\fielded.tga" alphaMod="ADD"  tile="true">
+					<BackgroundInsets>
+						<AbsInset left="11" right="11" top="12" bottom="10"/>
+					</BackgroundInsets>
+					<TileSize>
+						<AbsValue val="1000"/>
+					</TileSize>
+				</Backdrop>
+				<Scripts>
+					<OnShow>
+						self:SetFrameLevel(BigfootNewMainFrame:GetFrameLevel()+10)
+						BigfootSuitDropDownMenu:Hide()
+						BF_SearchBox:ClearFocus();
+					</OnShow>
+					<OnEnter>
+					</OnEnter>
+					<OnClick>
+					</OnClick>
+					<OnMouseWheel>
+						--print("OnMouseWheel")
+					</OnMouseWheel>
+				</Scripts>
+			</ScrollFrame>
+			<Frame name="BigfootSuitOptionFrame" hidden="true">
+
+				<Size x="496" y="332"/>
+				<Anchors>
+					<Anchor point="CENTER" relativeTo="BigfootNewMainFrame" relativePoint="CENTER">
+						<Offset>
+							<AbsDimension x="0" y="-30"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<FontString name="$parentTitle" parentKey="title" inherits="SystemFont_Shadow_Huge1" text="BF_SUITOPTION_TITLE">
+							<Size x="300" y="50"/>
+							<Anchors>
+								<Anchor point="TOP" x="0" y="0"/>
+							</Anchors>
+							<Color r="1" g="0.85" b="0.2" a="1"/>
+						</FontString>
+						<Texture name="$parentLeftBorder" parentKey="leftborder" inherits="BF_SuitOption_LeftBorder">
+							<Size x="32" y="332" />
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+								</Anchor>
+								<Anchor point="BOTTOMLEFT" relativeTo="$parent" relativePoint="BOTTOMLEFT">
+								</Anchor>
+							</Anchors>
+						</Texture>
+						<Texture name="$parentRightBorder"  parentKey="rightborder" inherits="BF_SuitOption_RightBorder">
+							<Size x="32" y="332" />
+							<Anchors>
+								<Anchor point="TOPRIGHT" relativeTo="$parent" relativePoint="TOPRIGHT">
+								</Anchor>
+								<Anchor point="BOTTOMRIGHT" relativeTo="$parent" relativePoint="BOTTOMRIGHT">
+								</Anchor>
+							</Anchors>
+						</Texture>
+					</Layer>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="DialogButtonNormalText" justifyH="LEFT" parentKey="text" >
+							<Size x="100" y="30"/>
+							<Anchors>
+								<Anchor point="CENTER">
+									<Offset>
+										<AbsDimension x="0" y="30"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Frames>
+					<Button name="$parentSaveSuitButton" parentKey="savesuit" text="BF_SAVESUIT" inherits="BF_ConfigButtonTemplate">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" x="-20" y="20"/>
+						</Anchors>
+						<Size x="70" y="21"/>
+						<Scripts>
+							<OnClick>
+								BigfootNewMainFrame_BigfootSuitOptionFrame_SaveSuitButtonOnClick()
+							</OnClick>
+						</Scripts>
+					</Button>
+					<Button name="$parentNewSuitButton" parentKey="newsuit" text="BF_NEWSUIT" inherits="BF_ConfigButtonTemplate">
+						<Size x="70" y="21" />
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" x="-90" y="20"/>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								BigfootNewMainFrame_BigfootSuitOptionFrame_SaveNewSuitButtonOnClick()
+							</OnClick>
+						</Scripts>
+					</Button>
+					<Button name="$parentDelSuitButton" parentKey="Delsuit" text="BF_DELETESUIT" inherits="BF_ConfigButtonTemplate">
+						<Size x="70" y="21" />
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" x="-160" y="20"/>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								BigfootNewMainFrame_BigfootSuitOptionFrame_DelSuitButtonOnClick()
+							</OnClick>
+						</Scripts>
+					</Button>
+					<Button name="$parentswitchSuitButton" parentKey="switch" text="BF_SWITCHSUIT" inherits="BF_ConfigButtonTemplate">
+						<Size x="70" y="21" />
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" x="-230" y="20"/>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								BigfootNewMainFrame_BigfootSuitOptionFrame_switchSuitButtonOnClick()
+							</OnClick>
+						</Scripts>
+					</Button>
+
+
+					<Button name="$parentReturenMainButton" parentKey="returnmain" text="BF_RETURNMAIN" inherits="BF_ConfigButtonTemplate">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" x="20" y="20"/>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								self:GetParent():Hide();
+							</OnClick>
+						</Scripts>
+					</Button>
+					<Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+						<Anchors>
+							<Anchor point="TOPRIGHT" x="-5" y="-4"/>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								self:GetParent():Hide();
+							</OnClick>
+						</Scripts>
+					</Button>
+					<ScrollFrame name="BF_SuitListContainer" inherits="HybridScrollFrameTemplate">
+						<Size x="480" y="210"/>
+						<Anchors>
+							<Anchor point="TOPLEFT" >
+								<Offset>
+									<AbsDimension x="-14" y="-68"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Frames>
+							<Slider name="$parentScrollBar" inherits="HybridScrollBarTemplate">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPRIGHT">
+										<Offset>
+											<AbsDimension x="-8" y="20"/>
+										</Offset>
+									</Anchor>
+									<Anchor point="BOTTOMLEFT" relativeTo="$parent" relativePoint="BOTTOMRIGHT">
+										<Offset>
+											<AbsDimension x="-8" y="8"/>
+										</Offset>
+									</Anchor>
+								</Anchors>
+							</Slider>
+						</Frames>
+						<Scripts>
+							<OnShow>
+								BigfootNewMainFrame_BigfootSuitOptionFrame_OnShow(Self)
+							</OnShow>
+							<OnUpdate>
+							</OnUpdate>
+						</Scripts>
+					</ScrollFrame>
+				</Frames>
+				<Scripts>
+					<OnShow>
+						BigfootNewMainFrame_BigfootSuitOptionFrame_OnShow()
+						ShieldedFrame:Show()
+						self:SetFrameLevel(ShieldedFrame:GetFrameLevel()+1)
+					</OnShow>
+					<OnHide>
+						ShieldedFrame:Hide()
+						BigfootNewMainFrame_UpdateEditBoxState()
+					</OnHide>
+					<OnLoad>
+						BigfootNewMainFrame_BigfootSuitOptionFrame_OnLoad(self)
+					</OnLoad>
+					<OnEnter>
+					</OnEnter>
+				</Scripts>
+			</Frame>
+			<Frame name="BigfootMainSettingFrame" hidden="true">
+				<Size x="496" y="332"/>
+				<Anchors>
+					<Anchor point="CENTER" relativeTo="BigfootNewMainFrame" relativePoint="CENTER">
+						<Offset>
+							<AbsDimension x="0" y="-30"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<FontString name="$parentTitle" parentKey="title" inherits="SystemFont_Shadow_Huge1" text="BF_MAINSETTING_TITLE">
+							<Size x="300" y="50"/>
+							<Anchors>
+								<Anchor point="TOP" x="0" y="0"/>
+							</Anchors>
+							<Color r="1" g="0.85" b="0.2" a="1"/>
+						</FontString>
+						<Texture name="$parentLeftBorder" parentKey="leftborder" inherits="BF_SuitOption_LeftBorder">
+							<Size x="32" y="332" />
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+								</Anchor>
+								<Anchor point="BOTTOMLEFT" relativeTo="$parent" relativePoint="BOTTOMLEFT">
+								</Anchor>
+							</Anchors>
+						</Texture>
+						<Texture name="$parentRightBorder"  parentKey="rightborder" inherits="BF_SuitOption_RightBorder">
+							<Size x="32" y="332" />
+							<Anchors>
+								<Anchor point="TOPRIGHT" relativeTo="$parent" relativePoint="TOPRIGHT">
+								</Anchor>
+								<Anchor point="BOTTOMRIGHT" relativeTo="$parent" relativePoint="BOTTOMRIGHT">
+								</Anchor>
+							</Anchors>
+						</Texture>
+					</Layer>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="DialogButtonNormalText" justifyH="LEFT" parentKey="text" >
+							<Size x="100" y="30"/>
+							<Anchors>
+								<Anchor point="CENTER">
+									<Offset>
+										<AbsDimension x="0" y="30"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Frames>
+					<Button name="$parentSaveReturn" parentKey="savesuit" text="BF_BUTTONTEXT_SAVERETURN" inherits="BF_ConfigButtonTemplate">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" x="-20" y="20"/>
+						</Anchors>
+						<Size x="90" y="21"/>
+						<Scripts>
+							<OnClick>
+								self:GetParent():Hide()
+							</OnClick>
+						</Scripts>
+					</Button>
+					<Button name="$parentCollect" parentKey="collect" text="BF_COLLECT" inherits="BF_ConfigButtonTemplate">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" x="20" y="20"/>
+						</Anchors>
+						<Size x="70" y="21"/>
+						<Scripts>
+							<OnClick>
+								print(BF_COLLECT_PRINT)
+								collectgarbage("collect")
+							</OnClick>
+						</Scripts>
+					</Button>
+					<Button name="$parentReset" parentKey="reset" text="BF_RESET" inherits="BF_ConfigButtonTemplate">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="$parentCollect" relativePoint="BOTTOMRIGHT" x="7" y="0"/>
+						</Anchors>
+						<Size x="100" y="21"/>
+						<Scripts>
+							<OnClick>
+								StaticPopup_Show("BF_RESETCONFIG")
+							</OnClick>
+						</Scripts>
+					</Button>
+					<Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+						<Anchors>
+							<Anchor point="TOPRIGHT" x="-5" y="-4"/>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								self:GetParent():Hide();
+							</OnClick>
+						</Scripts>
+					</Button>
+				</Frames>
+				<Scripts>
+					<OnShow>
+						BigfootMainSettingFrame_OnShow(self)
+						ShieldedFrame:Show()
+						self:SetFrameLevel(ShieldedFrame:GetFrameLevel()+1)
+					</OnShow>
+					<OnHide>
+						ShieldedFrame:Hide()
+					</OnHide>
+					<OnLoad>
+						BigfootMainSettingFrame_OnLOAD(self)
+					</OnLoad>
+					<OnEnter>
+					</OnEnter>
+					<OnMouseWheel>
+						--print(11)
+					</OnMouseWheel>
+				</Scripts>
+			</Frame>
+			<Button name="$parentMainSettingButton" inherits="BF_MenuButtonTemplate" text="BF_MAINSETTING">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="25" y="-52"/>
+				</Anchors>
+				<Size x="85" y="22"/>
+				<Scripts>
+					<OnClick>
+						BigfootMainSettingButton_OnClick(self)
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parentUpdateInfo" inherits="BF_MenuButtonTemplate" text="BF_UPDATEINFO">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentMainSettingButton" relativePoint="RIGHT" x="10" y="0"/>
+				</Anchors>
+				<Size x="79" y="22"/>
+				<Scripts>
+					<OnClick>
+						BigFootReader_ShowBook(BF_CHANGELOG_TEXT)
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parentClassicPanel" inherits="BF_MenuButtonTemplate" text="BF_CLASSICPANEL">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentUpdateInfo" relativePoint="RIGHT" x="10" y="0"/>
+				</Anchors>
+				<Size x="120" y="22"/>
+				<Scripts>
+					<OnClick>
+						BigfootNewMainFrame_ClassicPanel_OnClick(self)
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+				<Anchors>
+					<Anchor point="TOPRIGHT" x="-2" y="-4"/>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						HideUIPanel(self:GetParent());
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parentDeleteSuitButton" inherits="BF_MenuButtonTemplate" text="BF_MANAGEMENT_SUIT">
+				<Anchors>
+					<Anchor point="TOPRIGHT" x="-30" y = "-85"/>
+				</Anchors>
+				<Size x="79" y="22"/>
+				<Scripts>
+					<OnClick>
+						--BigfootNewMainFrame_DelSuitButtonOnClick(self)
+						BigfootNewMainFrame_SaveSuitButtonOnClick(self)
+						BigfootNewMainFrame_selectTab(_G[defaultSelectedTab.."TabButton"])
+						_G["SingleTabButton"]:Disable();
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parentSaveSuitButton" inherits="BF_MenuButtonTemplate" text="BF_SAVESUIT">
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="$parentDeleteSuitButton" relativePoint="LEFT" x="-10" y ="0"/>
+				</Anchors>
+				<Size x="79" y="22"/>
+				<Scripts>
+					<OnClick>
+						BigfootNewMainFrame_SaveSuitButtonOnClick(self)
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parentSelectSuitButton" parentKey = "selectsuit" inherits="BF_SuitsDropDownMenuTemplate">
+				<Scripts>
+					<OnLoad>
+						--BigfootNewMainFrame_SelectSuitButtonOnLoad(self);
+						self:Hide()
+					</OnLoad>
+					<OnClick>
+						--BigfootNewMainFrame_SelectSuitButtonOnClick(self);
+					</OnClick>
+				</Scripts>
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="$parentSaveSuitButton" relativePoint="LEFT" x="-80" y="-2"/>
+				</Anchors>
+				<Size x="79" y="22"/>
+			</Button>
+			<Button name="$parentReloadButton" inherits="BF_MenuButtonTemplate" text="BF_RELOAD">
+				<Anchors>
+					<Anchor point="BOTTOMRIGHT"  x="-15" y ="20"/>
+				</Anchors>
+				<Size x="90" y="22"/>
+				<Scripts>
+					<OnLoad>
+						--BigfootNewMainFrame_ReloadButtonOnLoad(self)
+					</OnLoad>
+					<OnClick>
+						BigfootNewMainFrame_ReloadButtonOnClick(self);
+						BigFoot_RequestReloadUI();
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Frame name="$parentSettingInfoFrame" parentKey="settinginfo" hidden="true">
+				<Anchors>
+					<Anchor point="RIGHT">
+						<Offset>
+							<AbsDimension x="-5" y="-49"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size x="543" y="417"/>
+				<Backdrop bgFile="Interface\AddOns\BigFoot\Media\SettingInfoBG.tga" tile="true">
+					<BackgroundInsets>
+						<AbsInset left="11" right="11" top="12" bottom="10"/>
+					</BackgroundInsets>
+					<TileSize>
+						<AbsValue val="1000"/>
+					</TileSize>
+				</Backdrop>
+				<Frames>
+					<Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+						<Anchors>
+							<Anchor point="TOPRIGHT" x="-8" y="-6"/>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								self:GetParent():Hide();
+							</OnClick>
+						</Scripts>
+					</Button>
+				</Frames>
+				<Scripts>
+					<OnLoad>
+						BigfootNewMainFrame_SettingInfoFrameOnLoad(self)
+					</OnLoad>
+					<OnEnter>
+					</OnEnter>
+					<OnShow>
+						BF_AddonListContainer.scrollbar:ClearAllPoints()
+						BF_AddonListContainer.scrollbar:SetFrameLevel(self:GetFrameLevel()+1)
+						BF_AddonListContainer.scrollbar:SetPoint("TOPRIGHT",self,"TOPLEFT",33,-28)
+						BF_AddonListContainer.scrollbar:SetPoint("BOTTOMRIGHT",self,"BOTTOMLEFT",33,25)
+					</OnShow>
+					<OnHide>
+						BF_AddonListContainer.scrollbar:ClearAllPoints()
+						BF_AddonListContainer.scrollbar:SetFrameLevel(self:GetFrameLevel()+1)
+						BF_AddonListContainer.scrollbar:SetPoint("TOPLEFT",BF_AddonListContainer.scrollbar:GetParent(),"TOPRIGHT",10,20)
+						BF_AddonListContainer.scrollbar:SetPoint("BOTTOMLEFT",BF_AddonListContainer.scrollbar:GetParent(),"BOTTOMRIGHT",11,13)
+					</OnHide>
+				</Scripts>
+				<Layers>
+					<Layer level="BACKGROUND">
+
+					</Layer>
+				</Layers>
+			</Frame>
+			<!--This ScrollFrame is a temporary element -->
+			<ScrollFrame name="BF_AddonListContainer" inherits="HybridScrollFrameTemplate">
+				<Size x="730" y="355"/>
+				<Anchors>
+					<Anchor point="TOPRIGHT" >
+						<Offset>
+							<AbsDimension x="-49" y="-188"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Frames>
+					<Slider name="$parentScrollBar" parentKey="scrollbar" inherits="HybridScrollBarTemplate">
+						<Size x="20" y="505"/>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="10" y="20"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Slider>
+				</Frames>
+				<Scripts>
+					<OnUpdate>
+					</OnUpdate>
+				</Scripts>
+			</ScrollFrame>
+		</Frames>
+		<Layers>
+			<Layer name="BACKGROUND">
+				<Texture name="$parentLeftBorder" parentKey="leftborder" inherits="BF_MainFrame_LeftBorder" >
+					<Size x="50" y="600"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="0" y="0"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentRightBorder" parentKey="rightborder" inherits="BF_MainFrame_RightBorder" >
+					<Size x="75" y="600"/>
+					<Anchors>
+						<Anchor point="TOPRIGHT" x="0" y="0"/>
+					</Anchors>
+				</Texture>
+				<FontString name="$parentTitle" parentKey="title" inherits="SystemFont_Shadow_Huge1" text="BF_MAINFRAME_TITLE">
+					<Size x="300" y="50"/>
+					<Anchors>
+						<Anchor point="TOP" x="0" y="0"/>
+					</Anchors>
+					<Color r="1" g="0.85" b="0.2" a="1"/>
+				</FontString>
+			</Layer>
+			<Layer name="OVERLAY">
+				<FontString name="$parentSelectSuitText"  inherits="DialogButtonNormalText" justifyH="LEFT" text="BF_SELECTADDONSUIT">
+					<Size x="100" y="0"/>
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentSelectSuitButton" relativePoint="LEFT" x="60" y="2">
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+			<Layer name="OVERLAY" subLevel="10">
+			</Layer>
+		</Layers>
+	</Frame>
+
+	<!-- testframe  -->
+	<!--<ScrollFrame name="BF_AddonListContainer" inherits="HybridScrollFrameTemplate">
+		<Size x="1000" y="300"/>
+		<Anchors>
+			<Anchor point="TOPRIGHT">
+				<Offset>
+					<AbsDimension x="-27" y="-95"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Frames>
+			<Slider name="$parentScrollBar" inherits="HybridScrollBarTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="0" y="-12"/>
+						</Offset>
+					</Anchor>
+					<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT">
+						<Offset>
+							<AbsDimension x="0" y="12"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Slider>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				BigfootNewMainFrame_OnLoad(self)
+			</OnLoad>
+			<OnUpdate>
+				HybridScrollFrame_Update(self,1000,500)
+			</OnUpdate>
+		</Scripts>
+	</ScrollFrame>-->
+
+	<!--scrollframe -->
+	<CheckButton name="BigfootSuitListButtonTemplate" virtual="true" hidden="true">
+		<Size>
+			<AbsDimension x="70" y="10"/>
+		</Size>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="$parentText" parentKey="text" inherits="DialogButtonNormalText">
+					<Size x="45" y="45"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+							<Offset>
+								<AbsDimension x="2" y="0"/>
+							</Offset>
+						</Anchor>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parent" relativePoint="BOTTOMRIGHT">
+							<Offset>
+								<AbsDimension x="-5" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+			<Layer level="BACKGOUND">
+				<!--<Texture name="$parentLeft" file="Interface\AddOns\BigFoot\Media\RedSelect.tga" >
+					<Size x="2.12" y="16" />
+					<Anchors>
+						<Anchor point="TOPLEFT" >
+							<Offset>
+								<AbsDimension x="-2" y="5"/>
+							</Offset>
+						</Anchor>
+						<Anchor point="BOTTOMLEFT">
+							<Offset>
+								<AbsDimension x="-2" y="-7.5"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<TexCoords left="0" right="0.22" top="0" bottom="0.66"/>
+				</Texture>
+				<Texture name="$parentRight" file="Interface\AddOns\BigFoot\Media\RedSelect.tga" >
+					<Size x="2.12" y="16" />
+					<Anchors>
+						<Anchor point="TOPRIGHT" >
+							<Offset>
+								<AbsDimension x="-2" y="5"/>
+							</Offset>
+						</Anchor>
+						<Anchor point="BOTTOMRIGHT">
+							<Offset>
+								<AbsDimension x="-2" y="-7.5"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<TexCoords left="0.44" right="0.66" top="0" bottom="0.66"/>
+				</Texture>
+				<Texture name="$parentMiddle" file="Interface\AddOns\BigFoot\Media\RedSelect.tga" >
+					<Size x="2.12" y="16" />
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentLeft" relativePoint="TOPRIGHT">
+						</Anchor>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentRight" relativePoint="BOTTOMLEFT">
+						</Anchor>
+					</Anchors>
+					<TexCoords left="0.22" right="0.44" top="0" bottom="0.66"/>
+				</Texture>-->
+			</Layer>
+		</Layers>
+		<CheckedTexture file="Interface\QuestFrame\UI-QuestTitleHighlight" alphaMode="ADD" setAllPoints="true">
+			<Anchors>
+				<Anchor point="TOPLEFT" >
+					<Offset>
+						<AbsDimension x="2" y="2"/>
+					</Offset>
+				</Anchor>
+				<Anchor point="BOTTOMRIGHT">
+					<Offset>
+						<AbsDimension x="-5" y="-5"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</CheckedTexture>
+		<HighlightTexture file="Interface\QuestFrame\UI-QuestTitleHighlight" alphaMode="ADD" setAllPoints="true">
+			<Anchors>
+				<Anchor point="TOPLEFT" >
+					<Offset>
+						<AbsDimension x="2" y="2"/>
+					</Offset>
+				</Anchor>
+				<Anchor point="BOTTOMRIGHT">
+					<Offset>
+						<AbsDimension x="-5" y="-5"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</HighlightTexture>
+		<Scripts>
+			<OnShow>
+				if self:GetParent():GetSize()then
+					local x,y = self:GetParent():GetSize()
+					self:SetSize(x,10)
+				end
+			</OnShow>
+			<OnClick>
+				if type(self.func) == "function" then
+					self.func(self)
+				end
+				self:GetParent().selectbuttonID=self:GetID()
+				self:GetParent():Hide()
+			</OnClick>
+			<OnEnter>
+				BigfootNewMainFrame_BigfootSuitDropDownMenuStopCount()
+			</OnEnter>
+
+			<OnLeave>
+				BigfootNewMainFrame_BigfootSuitDropDownMenuStartCount()
+			</OnLeave>
+		</Scripts>
+	</CheckButton>
+
+	<Button name="BigfootSuitDropDownMenuButton" parent="BigfootNewMainFrame" inherits="BF_MenuButtonTemplate" >
+		<Size>
+			<AbsDimension x="100" y="21"/>
+		</Size>
+		<NormalTexture file="Interface\Addons\BigFoot\Media\slet_2.tga">
+			<TexCoords left="0" right="0.83" top="0.17" bottom="0.345" />
+		</NormalTexture>
+		<PushedTexture file="Interface\Addons\BigFoot\Media\slet_2.tga">
+			<TexCoords left="0" right="0.83" top="0" bottom="0.175"/>
+		</PushedTexture>
+		<HighlightTexture inherits="UIPanelButtonHighlightTexture">
+			<Size x="20" y="21"/>
+			<Anchors>
+				<Anchor point="RIGHT">
+
+				</Anchor>
+			</Anchors>
+		</HighlightTexture>
+		<ButtonText justifyH="LEFT">
+			<Anchors>
+				<Anchor point="LEFT">
+					<Offset>
+						<AbsDimension x="12" y="0"/>
+					</Offset>
+				</Anchor>
+				<Anchor point="RIGHT">
+					<Offset>
+						<AbsDimension x="-20" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</ButtonText>
+		<Anchors>
+			<Anchor point="TOPRIGHT" relativeTo="$parent">
+				<Offset>
+					<AbsDimension x="-205" y="-86"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="ARTWORK">
+				<!--<Texture name="$parentArrowTexture" file="Interface\AddOns\BigFoot\Media\selectbuttonArrow.tga">
+					<Size x="20" y="24"/>
+					<Anchors>
+
+						<Anchor point="RIGHT">
+							<Offset>
+								<AbsDimension x="-8" y="-4"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="0.33"/>
+				</Texture>-->
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnUpdate>
+				if BigfootSuitDropDownMenu.selectbuttonID and BigfootNewMainFrame_BigfootSuitDropDownMenu_GetNameById(BigfootSuitDropDownMenu.selectbuttonID) then
+					self:SetText(BigfootNewMainFrame_BigfootSuitDropDownMenu_GetNameById(BigfootSuitDropDownMenu.selectbuttonID))
+				else
+					self:SetText(BF_SUITBUTTON_CUSTOM)
+				end
+			</OnUpdate>
+			<OnClick>
+				BigfootNewMainFrame_BigfootNewMainFrame_BigfootSuitDropDownMenuOnClick(self)
+				PlaySound("igMainMenuOptionCheckBoxOn");
+			</OnClick>
+		</Scripts>
+	</Button>
+
+	<Frame name="BigfootSuitDropDownMenu" hidden="true" parent="BigfootSuitDropDownMenuButton">
+		<Anchors>
+			<Anchor point="TOP" relativeTo="BigfootSuitDropDownMenuButton" relativePoint="BOTTOM" x="0" y="-10">
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentTop" file="Interface\Addons\BigFoot\Media\slet_2.tga">
+					<Size x="26.6" y="8"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" >
+						</Anchor>
+						<Anchor point="TOPRIGHT">
+						</Anchor>
+					</Anchors>
+					<TexCoords left="0" right="0.88" top="0.5" bottom="0.5625"/>
+				</Texture>
+				<Texture name="$parentBottom" file="Interface\Addons\BigFoot\Media\slet_2.tga">
+					<Size x="26.6" y="8"/>
+					<Anchors>
+						<Anchor point="BOTTOMLEFT">
+						</Anchor>
+						<Anchor point="BOTTOMRIGHT">
+						</Anchor>
+					</Anchors>
+					<TexCoords left="0" right="0.88" top="0.9375" bottom="1"/>
+				</Texture>
+				<Texture name="$parentMiddle" file="Interface\Addons\BigFoot\Media\slet_2.tga">
+					<Size x="53.2" y="10"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentTop" relativePoint="BOTTOMLEFT">
+						</Anchor>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentBottom" relativePoint="TOPRIGHT">
+						</Anchor>
+					</Anchors>
+					<TexCoords left="0" right="0.88" top="0.5625" bottom="0.9375"/>
+				</Texture>
+
+			</Layer>
+		</Layers>
+		<Frames>
+			<CheckButton name="$parentSuitButton1"  inherits="BigfootSuitListButtonTemplate" id="1"/>
+			<CheckButton name="$parentSuitButton2"  inherits="BigfootSuitListButtonTemplate" id="2"/>
+			<CheckButton name="$parentSuitButton3"  inherits="BigfootSuitListButtonTemplate" id="3"/>
+			<CheckButton name="$parentSuitButton4"  inherits="BigfootSuitListButtonTemplate" id="4"/>
+			<CheckButton name="$parentSuitButton5"  inherits="BigfootSuitListButtonTemplate" id="5"/>
+			<CheckButton name="$parentSuitButton6"  inherits="BigfootSuitListButtonTemplate" id="6"/>
+			<CheckButton name="$parentSuitButton7"  inherits="BigfootSuitListButtonTemplate" id="7"/>
+			<CheckButton name="$parentSuitButton8"  inherits="BigfootSuitListButtonTemplate" id="8"/>
+		</Frames>
+		<Scripts>
+			<OnEnter>
+				BigfootNewMainFrame_BigfootSuitDropDownMenuStopCount()
+			</OnEnter>
+			<OnLeave>
+				BigfootNewMainFrame_BigfootSuitDropDownMenuStartCount()
+			</OnLeave>
+			<OnLoad>
+				BigfootNewMainFrame_BigfootSuitDropDownMenuOnLoad(self)
+			</OnLoad>
+			<OnShow>
+				BigfootNewMainFrame_BigfootSuitDropDownMenuOnShow(self)
+				BigfootNewMainFrame_BigfootSuitDropDownMenuStartCount()
+			</OnShow>
+			<OnUpdate>
+				BigfootNewMainFrame_BigfootSuitDropDownMenuOnUpdate(self,elapsed)
+			</OnUpdate>
+			<OnHide>
+				BigfootNewMainFrame_BigfootSuitDropDownMenuStopCount()
+			</OnHide>
+		</Scripts>
+	</Frame>
+
+	<Frame name="BF_GlowBoxTemplate" virtual="true">
+		<Layers>
+			<!--
+			<Layer level="BACKGROUND" textureSubLevel="-1">
+				<Texture name="$parentColorBorder" setAllPoints="true">
+					<Color r="1" g="0.82353" b="0"/>
+				</Texture>
+			</Layer>
+			-->
+			<Layer level="BACKGROUND">
+				<Texture name="$parentBg">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="1" y="-1"/>
+						<Anchor point="BOTTOMRIGHT" x="-1" y="1"/>
+					</Anchors>
+					<Color r="0" g="0" b="0"/>
+					<Gradient orientation="VERTICAL">
+						<MaxColor r="0.23" g="0.19" b="0"/>
+						<MinColor r="0" g="0" b="0"/>
+					</Gradient>
+				</Texture>
+			</Layer>
+			<Layer level="BACKGROUND" textureSubLevel="-1">
+				<Texture name="$parentGlowTopLeft" inherits="HelpPlateBox-Glow-TopLeft" parentKey="GlowTopLeft" alphaMode="ADD">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="-6" y="6"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentGlowTopRight" inherits="HelpPlateBox-Glow-TopRight" parentKey="GlowTopRight" alphaMode="ADD">
+					<Anchors>
+						<Anchor point="TOPRIGHT" x="6" y="6"/>
+					</Anchors>
+				</Texture>
+
+				<Texture name="$parentGlowBottomLeft" inherits="HelpPlateBox-Glow-BottomLeft" parentKey="GlowBottomLeft" alphaMode="ADD">
+					<Anchors>
+						<Anchor point="BOTTOMLEFT" x="-6" y="-6"/>
+					</Anchors>
+				</Texture>
+
+				<Texture name="$parentGlowBottomRight" inherits="HelpPlateBox-Glow-BottomRight" parentKey="GlowBottomRight" alphaMode="ADD">
+					<Anchors>
+						<Anchor point="BOTTOMRIGHT" x="6" y="-6"/>
+					</Anchors>
+				</Texture>
+
+				<Texture name="$parentGlowTop" inherits="_HelpPlateBox-Glow-Top" parentKey="GlowTop" alphaMode="ADD">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentGlowTopLeft" relativePoint="TOPRIGHT"/>
+						<Anchor point="TOPRIGHT" relativeTo="$parentGlowTopRight" relativePoint="TOPLEFT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentGlowBottom" inherits="_HelpPlateBox-Glow-Bottom" parentKey="GlowBottom" alphaMode="ADD">
+					<Anchors>
+						<Anchor point="BOTTOMLEFT" relativeTo="$parentGlowBottomLeft" relativePoint="BOTTOMRIGHT"/>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentGlowBottomRight" relativePoint="BOTTOMLEFT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentGlowLeft" inherits="!HelpPlateBox-Glow-Left" parentKey="GlowLeft" alphaMode="ADD">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentGlowTopLeft" relativePoint="BOTTOMLEFT"/>
+						<Anchor point="BOTTOMLEFT" relativeTo="$parentGlowBottomLeft" relativePoint="TOPLEFT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentGlowRight" inherits="!HelpPlateBox-Glow-Right" parentKey="GlowRight" alphaMode="ADD">
+					<Anchors>
+						<Anchor point="TOPRIGHT" relativeTo="$parentGlowTopRight" relativePoint="BOTTOMRIGHT"/>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentGlowBottomRight" relativePoint="TOPRIGHT"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+			<Layer level="BACKGROUND" textureSubLevel="-2">
+				<Texture name="$parentShadowTopLeft" inherits="HelpPlateBox-Shadow-TopLeft" parentKey="ShadowTopLeft" >
+					<Anchors>
+						<Anchor point="TOPLEFT" x="-16" y="16"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentShadowTopRight" inherits="HelpPlateBox-Shadow-TopRight" parentKey="ShadowTopRight" >
+					<Anchors>
+						<Anchor point="TOPRIGHT" x="16" y="16"/>
+					</Anchors>
+				</Texture>
+
+				<Texture name="$parentShadowBottomLeft" inherits="HelpPlateBox-Shadow-BottomLeft" parentKey="ShadowBottomLeft" >
+					<Anchors>
+						<Anchor point="BOTTOMLEFT" x="-16" y="-16"/>
+					</Anchors>
+				</Texture>
+
+				<Texture name="$parentShadowBottomRight" inherits="HelpPlateBox-Shadow-BottomRight" parentKey="ShadowBottomRight" >
+					<Anchors>
+						<Anchor point="BOTTOMRIGHT" x="16" y="-16"/>
+					</Anchors>
+				</Texture>
+
+				<Texture name="$parentShadowTop" inherits="_HelpPlateBox-Shadow-Top" parentKey="ShadowTop" >
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentShadowTopLeft" relativePoint="TOPRIGHT"/>
+						<Anchor point="TOPRIGHT" relativeTo="$parentShadowTopRight" relativePoint="TOPLEFT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentShadowBottom" inherits="_HelpPlateBox-Shadow-Bottom" parentKey="ShadowBottom" >
+					<Anchors>
+						<Anchor point="BOTTOMLEFT" relativeTo="$parentShadowBottomLeft" relativePoint="BOTTOMRIGHT"/>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentShadowBottomRight" relativePoint="BOTTOMLEFT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentShadowLeft" inherits="!HelpPlateBox-Shadow-Left" parentKey="ShadowLeft" >
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentShadowTopLeft" relativePoint="BOTTOMLEFT"/>
+						<Anchor point="BOTTOMLEFT" relativeTo="$parentShadowBottomLeft" relativePoint="TOPLEFT"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentShadowRight" inherits="!HelpPlateBox-Shadow-Right" parentKey="ShadowRight" >
+					<Anchors>
+						<Anchor point="TOPRIGHT" relativeTo="$parentShadowTopRight" relativePoint="BOTTOMRIGHT"/>
+						<Anchor point="BOTTOMRIGHT" relativeTo="$parentShadowBottomRight" relativePoint="TOPRIGHT"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+	</Frame>
+
+	<Frame name="BigfootButtonAlert" inherits="BF_GlowBoxTemplate" parent="BigfootNewMainFrame" enableMouse="true" hidden="true" frameStrata="DIALOG" frameLevel="10">
+		<Size x="220" y="100"/>
+		<Anchors>
+			<Anchor point="BOTTOM" relativeTo="TalentMicroButton" relativePoint="TOP" x="0" y="-8"/>
+		</Anchors>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="BigfootButtonAlertText" inherits="GameFontHighlightLeft" justifyV="TOP" text="TALENT_MICRO_BUTTON_TUTORIAL" >
+					<Size x="200" y="0"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="16" y="-24"/>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Animations>
+			<AnimationGroup name="$parentHideAnim" parentKey="hideslowly" looping="NONE">
+				<Alpha  target="BigfootButtonAlert" startDelay="3" change="-1" duration="0.5" order="1" >
+				</Alpha>
+				<Scripts>
+					<OnFinished>
+						self:GetParent():Hide()
+					</OnFinished>
+				</Scripts>
+			</AnimationGroup>
+		</Animations>
+		<Frames>
+			<Button name="BigfootButtonAlertCloseButton" inherits="UIPanelCloseButton">
+				<Anchors>
+					<Anchor point="TOPRIGHT" x="6" y="6"/>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						self:GetParent():Hide();
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Frame name="BigfootButtonAlertArrow" inherits="GlowBoxArrowTemplate">
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativePoint="BOTTOMRIGHT" x="-10" y="4"/>
+				</Anchors>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				BigfootButtonAlertText:SetSpacing(4);
+			</OnLoad>
+			<OnShow>
+				self:SetHeight(BigfootButtonAlertText:GetHeight()+42);
+				self.hideslowly:Stop()
+				self.hideslowly:Play()
+			</OnShow>
+		</Scripts>
+	</Frame>
+
+	<GameTooltip name="BigFootNew_Tooltip" frameStrata="TOOLTIP" hidden="false"  inherits="GameTooltipTemplate"/>
+
+	<Frame name="BigfootTutorialFrame"  inherits="BF_GlowBoxTemplate" parent="BigfootNewMainFrame" enableMouse="true" hidden="true" frameStrata="DIALOG" frameLevel="9">
+		<Size x="220" y="100"/>
+		<Anchors>
+			<Anchor point="TOP" x="0" y="-8"/>
+		</Anchors>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="$parentText" parentKey="text" inherits="GameFontHighlightLeft" justifyV="TOP" text="" >
+					<Size x="200" y="0"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="16" y="-24"/>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="BigfootButtonAlertCloseButton"   parent="BigfootTutorialFrame" inherits="UIPanelCloseButton" frameLevel="10">
+				<Anchors>
+					<Anchor point="TOPRIGHT" x="6" y="6"/>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						self:GetParent():Hide();
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parentNext" parentKey="nextStep"  parent="BigfootTutorialFrame" inherits="BF_MenuButtonTemplate" text="BUTTONTEXT_NEXT" frameLevel="10">
+				<Size x="70" y="22"/>
+				<Anchors>
+					<Anchor point="BOTTOMRIGHT" x="-2" y="2"/>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						TutorialsFrameNextOnClick(self)
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parentLast" parentKey="lastStep"  parent="BigfootTutorialFrame" inherits="BF_MenuButtonTemplate" text="BUTTONTEXT_LAST" frameLevel="10">
+				<Size x="70" y="22"/>
+				<Anchors>
+					<Anchor point="BOTTOMLEFT" x="2" y="2"/>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						TutorialsFrameLastOnClick(self)
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Frame name="$parentAlertArrowDown" parentKey="arrowdown" inherits="GlowBoxArrowTemplate" hidden="true">
+				<Anchors>
+					<Anchor point="TOP" relativePoint="BOTTOM" x="-10" y="4"/>
+				</Anchors>
+			</Frame>
+			<Frame name="$parentAlertArrowUp" parentKey="arrowup"  inherits="GlowBoxArrowTemplateUp" hidden="true">
+				<Anchors>
+					<Anchor point="BOTTOM" relativePoint="TOP" x="-10" y="-2"/>
+				</Anchors>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				BigfootButtonAlertText:SetSpacing(4);
+			</OnLoad>
+			<OnShow>
+				TutorialsFrameOnShow(self)
+			</OnShow>
+			<OnHide>
+				local bigfoot = G_ShowEnvironment:GetAddon("BigFoot")
+				bigfoot:GetAddonConfigByName("enableTutorials"):SetConfigValue(false,false)
+				BF_SaveSuit(G_ShowEnvironment)
+			</OnHide>
+		</Scripts>
+	</Frame>
+
+</Ui>

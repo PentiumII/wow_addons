@@ -1,0 +1,16 @@
+﻿## Interface: 60000
+## Title: Grid_QuickHealth
+## Title-zhCN: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 快速恢复
+## Title-zhTW: |cffffe00a<|r|cffff7d0aGrid|r|cffffe00a>|r 快速恢復
+## Notes: |cffbc8f8fMakes grid QuickHealth aware.|r
+## Notes-zhCN: |cff00ff00Grid_QuickHealth|r                                             |cffbc8f8f更快速的显示团队血量变化。|r
+## Notes-zhTW: |cff00ff00Grid_QuickHealth|r                                             |cffbc8f8f更快速的顯示團隊血量變化。|r
+## Author: Cncfanatics, Tifi
+## Dependencies: Grid
+## LoadWith: Grid
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+libs\LibQuickHealth-2.0\LibQuickHealth-2.0.lua
+
+Grid_QuickHealth.lua

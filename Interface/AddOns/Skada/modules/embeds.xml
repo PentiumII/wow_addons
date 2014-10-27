@@ -1,0 +1,18 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
+
+	<Script file="SkadaThreat\Threat.lua"/>
+	<Script file="SkadaDamage\Damage.lua"/>
+	<Script file="SkadaHealing\Healing.lua"/>
+	<Script file="SkadaHealing\Overhealing.lua"/>
+	<Script file="SkadaHealing\TotalHealing.lua"/>
+	<Script file="SkadaDamageTaken\DamageTaken.lua"/>
+	<Script file="SkadaDeaths\Deaths.lua"/>
+	<Script file="SkadaDebuffs\Debuffs.lua"/>
+	<Script file="SkadaDispels\Dispels.lua"/>
+	<Script file="SkadaDispels\Interrupts.lua"/>
+	<Script file="SkadaEnemies\Enemies.lua"/>
+	<Script file="SkadaPower\Power.lua"/>
+	<Script file="SkadaCC\CC.lua"/>
+	<Script file="SkadaWindowButtons.lua"/>
+	
+</Ui>

@@ -1,0 +1,15 @@
+## Interface: 60000
+## Title: Raid Builder
+## Title-zhCN: |cffff565e[集合石]|r 组团模块
+## Title-zhTW: |cffff565e[集合石]|r 組隊模塊
+## Notes-zhCN: |cff00ff00RaidBuilder|r                                             |cffbc8f8f帮助您更好的组建队伍。|r
+## Notes-zhTW: |cff00ff00RaidBuilder|r                                             |cffbc8f8f幫助您更好的組建隊伍。|r
+## Version: 60000.03
+## SavedVariables: RAIDBUILDER_UI_DB
+## SavedVariablesPerCharacter: RAIDBUILDER_CHARACTER_DB
+## X-WoWBox-Ver: 1
+## Dependencies: BigFoot
+## X-Revision: BigFoot
+## LoadOnDemand: 1
+
+Load.xml

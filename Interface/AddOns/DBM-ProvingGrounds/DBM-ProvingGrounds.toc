@@ -1,0 +1,26 @@
+﻿## Interface: 60000
+## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r Proving Grounds
+## Title-zhCN:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r 白虎试练场
+## Title-zhTW:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r 白虎試練場
+## Notes-zhCN: |cff00ff00DBM-ProvingGrounds|r
+## Notes-zhTW: |cff00ff00DBM-ProvingGrounds|r
+## Author: MysticalOS
+## LoadOnDemand: 1
+## RequiredDeps: DBM-Core
+## SavedVariablesPerCharacter: DBMProvingGrounds_SavedVars, DBMProvingGrounds_SavedStats
+## X-DBM-Mod: 1
+## X-DBM-Mod-Type: SCENARIO
+## X-DBM-Mod-Category: WOD
+## X-DBM-Mod-No-Statistics: 1
+## X-DBM-Mod-Name: Proving Grounds
+## X-DBM-Mod-Name-zhTW: 白虎試練場
+## X-DBM-Mod-Name-zhCN: 白虎试练场
+## X-DBM-Mod-Sort: 140
+## X-DBM-Mod-MapID: 1148
+## X-Revision: BigFoot
+
+localization.en.lua
+localization.tw.lua
+localization.cn.lua
+
+PGWhiteTiger.lua
